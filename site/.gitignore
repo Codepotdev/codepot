@@ -33,3 +33,12 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# next.js
+.next/
+out/
+
+# misc
+.DS_Store
+*.pem
+.idea
