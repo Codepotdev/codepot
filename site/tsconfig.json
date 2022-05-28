@@ -20,6 +20,7 @@
         "@utils/*": ["utils/*"],
         "@config/*": ["config/*"],
         "@assets/*": ["assets/*"],
+        "@pages/*": ["pages/*"],
         "@components/*": ["components/*"],
         "@commerce": ["../packages/commerce/src"],
         "@commerce/*": ["../packages/commerce/src/*"],
