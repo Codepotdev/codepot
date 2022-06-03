@@ -1,5 +1,5 @@
-import Header from "../../pages/header";
-import Sidenav from "../../pages/sidenav";
+import Header from "./header";
+import Sidenav from "./sidenav";
 
 export default function Layout({ children }) {
   return (
