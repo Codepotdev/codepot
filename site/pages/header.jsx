@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const Header = () => {
-
   const [active, setActive] = useState(false);
 
   const handleClick = () => {
@@ -39,11 +38,7 @@ const Header = () => {
           </svg>
         </button>
       </div>
-      <div
-        className={`z-50 w-full h-full ${
-          active ? "" : "hidden"
-        } `}
-      >
+      <div className={`z-50 w-full ${active ? "" : "hidden"} `}>
         <div className="w-60 h-full left-0 top-0 shadow-md bg-slate-700 px-1 absolute">
           <ul className="relative">
             <li className="relative">
