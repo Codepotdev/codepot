@@ -12,7 +12,7 @@ export const getStaticProps = async () => {
 
 const Home = ({ question }) => {
   return (
-    <div className="p-10 grid sm:grid-cols-1 md:grid-cols-6 lg:grid-cols-6 gap-5">
+    <div className="p-10 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
       {question.map(q => (
         <Card
         key={q.question_id}

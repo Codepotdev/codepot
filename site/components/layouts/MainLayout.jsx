@@ -1,14 +1,18 @@
 import Header from "./header";
-import Sidenav from "./sidenav";
+import Sidenav from "./Sidenav";
 
 export default function Layout({ children }) {
   return (
-    <>
-      <Header />
-      <main className="grid grid-cols-12">
-        <Sidenav className="col-span-2"></Sidenav>
-        <section className="col-span-10">{children} </section>
-      </main>
-    </>
+    <div className="min-h-screen flex flex-col">
+      <header>
+        <Header />
+      </header>
+      <div className="flex flex-row flex-1">
+        <aside className="w-full md:w-60 md:flex hidden">
+          <Sidenav />
+        </aside>
+        <main className="flex-1">{children}</main>
+      </div>
+    </div>
   );
 }

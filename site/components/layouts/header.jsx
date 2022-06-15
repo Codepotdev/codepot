@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { AppContext } from "@lib/context";
+import { useState, useContext } from "react";
 
 const Header = () => {
   const [active, setActive] = useState(false);
+  const { user, theme } = useContext(AppContext);
+
 
   const handleClick = () => {
     setActive(!active);
@@ -23,7 +26,9 @@ const Header = () => {
           Codepot.dev
         </span>
       </div>
-      <div className="block lg:hidden">
+      <p className="text-white">{user}</p>
+
+      <div className="md:hidden block">
         <button
           onClick={handleClick}
           className="flex items-center px-3 py-2 border rounded text-slate-200 border-slate-400 hover:text-white hover:border-white"
