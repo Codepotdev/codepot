@@ -19,7 +19,7 @@ const Home = ({ question }) => {
           key={q.question_id}
           title={q.title}
           description={q.owner.display_name}
-          image="https://media-exp2.licdn.com/dms/image/sync/D4E27AQEFF7Kyk-R2kQ/articleshare-shrink_800/0/1654871641086?e=1656014400&v=beta&t=jUrARhHrHAKTRJchABwDM1whbOuLVfyZ_usuTFYOPWw"
+          image={q.owner.profile_image}
           tags={q.tags}
         />
       ))}
