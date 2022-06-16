@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({ title, description, image, tags }) => {
           <div className="font-bold text-xl mb-2">{title}</div>
           <p className="text-gray-700u text-base">{description}</p>
         </div>
-        <div className="">
+        <div className="mt-auto flex-col-reverse">
           {tags.map((tag) => (
             <span
               key={tag}
@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ title, description, image, tags }) => {
             </span>
           ))}
         </div>
-        <div className=" bg-sky-700 w-full h-3"></div>
+        <div className="mt-2 mb-2 bg-sky-700 w-full h-3"></div>
       </div>
 
       <div className="rounded overflow-hidden shadow-xl">
