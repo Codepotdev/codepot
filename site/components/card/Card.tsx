@@ -1,35 +1,40 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 interface CardProps {
-    title?: string
-    description: string
-    image: string
-    tags: Array<string>
-  }
-
- const Card: React.FC<CardProps> = ({
-    title,
-    description,
-    image,
-    tags
-  }) => {
-    return (
-        <div className="rounded overflow-hidden shadow-lg">
-            <Image className="w-1/2" width={500} height={500} src={image} alt="" />
-            <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2">{title}</div>
-            <p className="text-gray-700 text-base">
-                {description}
-            </p>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-            { 
-                tags.map(
-                    tag => <span key={tag} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{tag}</span>
-                )
-            }
-            </div>
-        </div>
-    )
+  title?: string;
+  description: string;
+  image: string;
+  tags: Array<string>;
 }
-export default Card
+
+const Card: React.FC<CardProps> = ({ title, description, image, tags }) => {
+  return (
+    <>
+      <div className="flex flex-col overflow-hidden p-2 h-100 rounded shadow-xl">
+        <div className="col-span-2 font-bold text-xl">{title}</div>
+        <Image
+          width={25}
+          height={25}
+          layout="fixed"
+          className="rounded-full justify-end"
+          src={image}
+          alt=""
+        />
+        <div className="mb-auto"></div>
+        <div className="mt-5 ">
+          {tags.slice(0, 4).map((tag) => (
+            <span
+              key={tag}
+              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-2 mb-2 bg-sky-700 w-full h-3"></div>
+      </div>
+    </>
+  );
+};
+export default Card;
