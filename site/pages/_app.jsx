@@ -1,15 +1,19 @@
 import "../styles/globals.css";
-import Layout from "../components/layouts/MainLayout";
+import MainLayout from "../components/layouts/MainLayout";
 import { AppContext } from "@lib/context";
 
 function MyApp({ Component, pageProps }) {
-  const value = { user: "Dimitar Chetelev", theme: "light" };
+  const value = {
+    user: "Dimitar Chetelev",
+    theme: "light",
+    hamburgerClicked: false,
+  };
 
   return (
     <AppContext.Provider value={value}>
-      <Layout>
+      <MainLayout>
         <Component {...pageProps} />
-      </Layout>
+      </MainLayout>
     </AppContext.Provider>
   );
 }

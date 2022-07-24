@@ -10,8 +10,8 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ title, description, image, tags }) => {
   return (
     <>
-      <div className="flex flex-col overflow-hidden p-2 h-100 rounded shadow-xl">
-        <div className="col-span-2 font-bold text-xl">{title}</div>
+      <article className="flex flex-col p-2 rounded-2xl shadow-2 border border-slate-300 hover:bg-gradient-to-l bg-gradient-to-r from-slate-50 to-slate-100 cursor-pointer">
+        <div className="font-bold text-xl">{title}</div>
         <Image
           width={25}
           height={25}
@@ -32,8 +32,8 @@ const Card: React.FC<CardProps> = ({ title, description, image, tags }) => {
           ))}
         </div>
 
-        <div className="mt-2 mb-2 bg-sky-700 w-full h-3"></div>
-      </div>
+        <div className="mt-2 mb-2 bg-gradient-to-l from-indigo-500 to-fuchsia-500 w-full h-0.5"></div>
+      </article>
     </>
   );
 };
