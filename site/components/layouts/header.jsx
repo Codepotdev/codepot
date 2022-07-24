@@ -3,10 +3,12 @@ import { useState, useContext } from "react";
 
 const Header = () => {
   const [active, setActive] = useState(false);
-  const { user, theme, hamburgerClicked } = useContext(AppContext);
+
+  const [appState, setAppState] = useContext(AppContext);
 
   const handleClick = () => {
     setActive(!active);
+    setAppState(!appState);
   };
 
   return (
@@ -16,7 +18,7 @@ const Header = () => {
           Codepot.dev
         </span>
       </div>
-      <p className="text-white">{user}</p>
+      <p className="text-black">test</p>
 
       <div className="md:hidden block">
         <button
@@ -34,7 +36,7 @@ const Header = () => {
         </button>
       </div>
       <div className={`z-50 w-full ${active ? "" : "hidden"} `}>
-        <div className="w-60 h-full left-0 top-0 shadow-md px-1 absolute">
+        <div className="w-60 h-full left-0 top-0 shadow-md px-1 absolute bg-white">
           <ul className="relative">
             <li className="relative">
               <a
