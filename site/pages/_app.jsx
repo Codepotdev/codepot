@@ -1,15 +1,17 @@
 import "../styles/globals.css";
-import Layout from "../components/layouts/MainLayout";
+import MainLayout from "../components/layouts/MainLayout";
 import { AppContext } from "@lib/context";
+import { useState } from "react";
 
 function MyApp({ Component, pageProps }) {
-  const value = { user: "Dimitar Chetelev", theme: "light" };
+
+  const [appState, setAppState] = useState(false)
 
   return (
-    <AppContext.Provider value={value}>
-      <Layout>
+    <AppContext.Provider value={[appState, setAppState]}>
+      <MainLayout>
         <Component {...pageProps} />
-      </Layout>
+      </MainLayout>
     </AppContext.Provider>
   );
 }
