@@ -1,18 +1,30 @@
 import { Card } from "@components/card";
-import Link from "next/link";
+import { getLinkPreview } from "link-preview-js";
 
 export const getStaticProps = async () => {
-  const res = await fetch(
+  const stackOverflowAPI = await fetch(
     "https://api.stackexchange.com/2.3/questions/no-answers?page=1&pagesize=64&order=desc&max=1654128000&sort=activity&site=stackoverflow"
   );
-  const data = await res.json();
+
+  const stackOverflowAPIResponse = await stackOverflowAPI.json();
+  
+  const mapData = stackOverflowAPIResponse.items.map((item) => {
+    item.metadata = getMetadata(item.link)
+    return item
+  })
+
+  console.log(mapData)
+
   return {
-    props: { questions: data["items"] },
+    props: { questions: stackOverflowAPIResponse.items },
   };
 };
 
+export const getMetadata = (link) => {
+  return getLinkPreview(link).then((data) => console.log(data));
+};
+
 const Home = ({ questions }) => {
-  console.log(questions)
   return (
     <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
       {questions.map((question) => (
