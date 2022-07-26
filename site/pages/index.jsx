@@ -7,21 +7,14 @@ export const getStaticProps = async () => {
   );
 
   const stackOverflowAPIResponse = await stackOverflowAPI.json();
-  
-  const mapData = stackOverflowAPIResponse.items.map((item) => {
-    item.metadata = getMetadata(item.link)
-    return item
-  })
 
-  console.log(mapData)
+  for (const item of stackOverflowAPIResponse.items) {
+    item.metadata = await getLinkPreview(item.link);
+  }
 
   return {
     props: { questions: stackOverflowAPIResponse.items },
   };
-};
-
-export const getMetadata = (link) => {
-  return getLinkPreview(link).then((data) => console.log(data));
 };
 
 const Home = ({ questions }) => {
@@ -32,9 +25,10 @@ const Home = ({ questions }) => {
           key={question.question_id}
           title={question.title}
           description={question.owner.display_name}
-          image={question.owner.profile_image}
+          profileImage={question.owner.profile_image}
           tags={question.tags}
           link={question.link}
+          metadata={question.metadata}
         />
       ))}
     </div>
