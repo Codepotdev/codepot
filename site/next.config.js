@@ -9,6 +9,7 @@ const nextConfig = {
       "lh4.googleusercontent.com",
       "lh5.googleusercontent.com",
       "lh6.googleusercontent.com",
+      "avatars.githubusercontent.com",
       "i.stack.imgur.com",
       "graph.facebook.com",
     ],
