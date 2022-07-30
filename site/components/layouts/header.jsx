@@ -23,7 +23,7 @@ const Header = () => {
       <div className="md:hidden block">
         <button
           onClick={handleClick}
-          className="flex items-center px-3 py-2 border rounded text-slate-200 border-slate-400 hover:text-white hover:border-white"
+          className="flex items-center px-3 py-2 border rounded text-black border-slate-400 hover:text-black hover:border-black"
         >
           <svg
             className="fill-current h-3 w-3"
