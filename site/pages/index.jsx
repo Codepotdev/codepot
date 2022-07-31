@@ -31,7 +31,7 @@ const Home = ({ cardData }) => {
           title={cd.title ? cd.title : cd.full_name}
           description={cd.description}
           image={
-            cd.owner.avatar_url ? cd.owner.avatar_url : "/stackoverflow.svg"
+            cd.owner?.avatar_url ? cd.owner.avatar_url : "/stackoverflow.svg"
           }
           tags={cd.tags ? cd.tags : cd.topics}
           link={cd.link ? cd.link : cd.url}
