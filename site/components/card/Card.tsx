@@ -38,14 +38,14 @@ const Card: React.FC<CardProps> = ({
         </div>
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{title}</div>
-          <p className="text-gray-700 text-base">{title}</p>
+          <p className="text-gray-700 text-base">{description}</p>
         </div>
         <div className="mb-auto"></div>
         <div className="px-6 pt-4 pb-2">
-          {tags?.slice(0, 3).map((tag) => (
+          {tags?.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="inline-block bg-gray-200 rounded-full px-3 py-1   text-sm font-semibold text-gray-700 mr-2 mb-2"
+              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs` font-semibold text-gray-700 mr-2 mb-2"
             >
               {tag}
             </span>

@@ -2,19 +2,21 @@ import { Card } from "@components/card";
 import { shuffleArray } from "@lib/shuffle";
 
 export const getStaticProps = async () => {
-  const stackOverflowAPI = await fetch(`${process.env.SO_API}&key=${process.env.SO_API_KEY}`);
-
-  const gitHubAPI = await fetch(process.env.GITHUB_API, {  
-    method: "GET",
-    headers: {
-      Authorization: process.env.GITHUB_API_KEY
-    }
-  });
+  const stackOverflowAPI = await fetch(
+    `${process.env.SO_API}&key=${process.env.SO_API_KEY}`
+  );
 
   const stackOverflowAPIResponse = await stackOverflowAPI.json();
-  const gitHubAPIResponse = await gitHubAPI.json();
+  const gitHubAPI = await fetch("http://localhost:8080/repositories", {
+    method: "GET",
+  });
 
-  const response = [...stackOverflowAPIResponse.items, ...gitHubAPIResponse];
+  const gitHubAPIResponse = gitHubAPI.json();
+
+  const response = [
+    ...stackOverflowAPIResponse.items,
+    ...(await gitHubAPIResponse),
+  ];
   shuffleArray(response);
   return {
     props: { cardData: response },
@@ -29,7 +31,7 @@ const Home = ({ cardData }) => {
           title={cd.title ? cd.title : cd.full_name}
           description={cd.description}
           image={
-            cd.owner.avatar_url ? cd.owner.avatar_url : "/stackoverflow.svg"
+            cd.owner?.avatar_url ? cd.owner.avatar_url : "/stackoverflow.svg"
           }
           tags={cd.tags ? cd.tags : cd.topics}
           link={cd.link ? cd.link : cd.url}
