@@ -5,19 +5,18 @@ export const getStaticProps = async () => {
   const stackOverflowAPI = await fetch(
     `${process.env.SO_API}&key=${process.env.SO_API_KEY}`
   );
+  const getRepositories = await fetch("http://localhost:8080/repositories");
 
   const stackOverflowAPIResponse = await stackOverflowAPI.json();
-  const gitHubAPI = await fetch("http://localhost:8080/repositories", {
-    method: "GET",
-  });
-
-  const gitHubAPIResponse = gitHubAPI.json();
+  const getRepositoriesResponse = await getRepositories.json();
 
   const response = [
     ...stackOverflowAPIResponse.items,
-    ...(await gitHubAPIResponse),
+    ...getRepositoriesResponse,
   ];
+
   shuffleArray(response);
+
   return {
     props: { cardData: response },
   };
