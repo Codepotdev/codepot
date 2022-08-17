@@ -12,13 +12,13 @@ const Header = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between flex-wrap p-6 border-b">
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
+    <nav className="flex flex-wrap p-6">
+      <div className="flex items-start flex-shrink-0 text-white mr-6">
         <span className="font-semibold text-xl text-black tracking-tight">
           Codepot.dev
         </span>
       </div>
-      <p className="text-black">test</p>
+      <p className="text-black"></p>
 
       <div className="md:hidden block">
         <button
