@@ -15,7 +15,7 @@ const Header = () => {
     <nav className="flex flex-wrap p-6">
       <div className="flex items-start flex-shrink-0 text-white mr-6">
         <span className="font-semibold text-xl text-black tracking-tight">
-          Codepot.dev
+          codepotdev
         </span>
       </div>
       <p className="text-black"></p>
