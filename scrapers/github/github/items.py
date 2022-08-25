@@ -18,3 +18,13 @@ class TrendingItem(scrapy.Item):
     weekly = scrapy.Field()
     monthly = scrapy.Field()
 
+
+class IssuesItem(scrapy.Item):
+    """
+    Specific trending repo information
+    """
+    id = scrapy.Field()
+    title = scrapy.Field()
+    description = scrapy.Field()
+    labels = scrapy.Field()
+    url = scrapy.Field()
