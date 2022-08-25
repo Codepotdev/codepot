@@ -1,6 +1,5 @@
 import scrapy
 import requests
-from datetime import datetime
 from github.items import RepoItem, TrendingItem
 
 class TrendingSpider(scrapy.Spider):
