@@ -5,7 +5,7 @@ export const getStaticProps = async () => {
   // const stackOverflowAPI = await fetch(
   //   `${process.env.SO_API}&key=${process.env.SO_API_KEY}`
   // );
-  
+
   const getRepositories = await fetch("http://localhost:8080/repositories");
 
   // const stackOverflowAPIResponse = await stackOverflowAPI.json();
@@ -13,9 +13,9 @@ export const getStaticProps = async () => {
 
   const response = [
     // ...stackOverflowAPIResponse.items,
-   ...getRepositoriesResponse,
+    ...getRepositoriesResponse,
   ];
-  
+
   shuffleArray(response);
   return {
     props: { cardData: response },
@@ -24,20 +24,31 @@ export const getStaticProps = async () => {
 
 const Home = ({ cardData }) => {
   return (
-    <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-      {cardData.map((cd) => (
-        <Card
-          title={cd.title ? cd.title : cd.name}
-          description={cd.description}
-          image={
-            cd.url ? cd.url : "/stackoverflow.svg"
-          }
-          tags={cd.tags ? cd.tags : cd.topics}
-          link={cd.link ? cd.link : cd.url}
-          key={cd.question_id ? cd.question_id : cd.id}
-        />
-      ))}
-    </div>
+    <>
+      <div className="flex my-6">
+        <div className="">
+          <span className="font-semibold border-b-2 p-2  cursor-pointer">
+            Trending
+          </span>
+          <span className="ml-2">|</span>
+          <span className="mx-2 cursor-pointer p-2">Help Wanted</span>
+          <span className="mr-2">|</span>
+          <span className="cursor-pointer p-2">Stackoverflow</span>
+        </div>
+      </div>
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        {cardData.map((cd) => (
+          <Card
+            title={cd.title ? cd.title : cd.name}
+            description={cd.description}
+            image={cd.url ? cd.url : "/stackoverflow.svg"}
+            tags={cd.tags ? cd.tags : cd.topics}
+            link={cd.link ? cd.link : cd.url}
+            key={cd.question_id ? cd.question_id : cd.id}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
