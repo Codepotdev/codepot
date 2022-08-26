@@ -2,16 +2,17 @@ import { Card } from "@components/card";
 import { shuffleArray } from "@lib/shuffle";
 
 export const getStaticProps = async () => {
-  const stackOverflowAPI = await fetch(
-    `${process.env.SO_API}&key=${process.env.SO_API_KEY}`
-  );
+  // const stackOverflowAPI = await fetch(
+  //   `${process.env.SO_API}&key=${process.env.SO_API_KEY}`
+  // );
+  
   const getRepositories = await fetch("http://localhost:8080/repositories");
 
-  const stackOverflowAPIResponse = await stackOverflowAPI.json();
+  // const stackOverflowAPIResponse = await stackOverflowAPI.json();
   const getRepositoriesResponse = await getRepositories.json();
 
   const response = [
-    ...stackOverflowAPIResponse.items,
+    // ...stackOverflowAPIResponse.items,
    ...getRepositoriesResponse,
   ];
   
@@ -22,12 +23,11 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ cardData }) => {
-  console.log(cardData)
   return (
-    <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
+    <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {cardData.map((cd) => (
         <Card
-          title={cd.title ? cd.title : cd.full_name}
+          title={cd.title ? cd.title : cd.name}
           description={cd.description}
           image={
             cd.url ? cd.url : "/stackoverflow.svg"
