@@ -18,9 +18,18 @@ const Header = () => {
           codepotdev
         </span>
       </div>
-      <p className="text-black"></p>
 
-      <div className="md:hidden block">
+      <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <span className="font-semibold text-xl text-black tracking-tight">
+          contribute
+        </span>
+
+        <span className="font-semibold text-xl text-black tracking-tight">
+          learn
+        </span>
+      </div>
+
+      {/* <div className="md:hidden block">
         <button
           onClick={handleClick}
           className="flex items-center px-3 py-2 border rounded text-black border-slate-400 hover:text-black hover:border-black"
@@ -70,7 +79,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </nav>
   );
 };

@@ -16,7 +16,6 @@ export default function MainLayout({ children }) {
         <Header />
         <div className="bg-gradient-to-l from-indigo-500 to-fuchsia-500 h-0.5"></div>
       </header>
-      {/* <div>Trending repositories</div> */}
       <div className="flex flex-row flex-1 sticky">
         {/* <aside className="w-full md:w-60 md:flex hidden">
           <Sidenav />

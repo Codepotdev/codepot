@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <>
-      <div className="max-w-sm rounded-xl overflow-hidden shadow-lg flex flex-col p-2  shadow-2 border border-slate-300 hover:bg-gradient-to-tl bg-gradient-to-r from-slate-50 to-slate-100 cursor-pointer ">
+      <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg flex flex-col p-2  shadow-2 border border-slate-300 hover:bg-gradient-to-tl bg-gradient-to-r from-slate-50 to-slate-100 cursor-pointer ">
         <div className="flex flex-row px-6 py-2 justify-between items-center">
           {image && (
             <Image src={image} height={40} width={40} alt="stackoverflow" />
@@ -47,6 +47,7 @@ const Card: React.FC<CardProps> = ({
           ))}
           <div className="mt-2 mb-2 bg-gradient-to-l from-indigo-100 to-fuchsia-100 w-full h-0.5"></div>
         </div>
+        <div className="mt-2 mb-2 bg-gradient-to-l from-indigo-500 to-fuchsia-500 w-full h-0.5"></div>
       </div>
     </>
   );

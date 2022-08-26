@@ -12,6 +12,7 @@ const nextConfig = {
       "avatars.githubusercontent.com",
       "i.stack.imgur.com",
       "graph.facebook.com",
+      "api.github.com"
     ],
   },
 };
