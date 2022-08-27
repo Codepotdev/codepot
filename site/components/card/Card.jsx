@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Card({ title, description, image, tags, link }) {
   return (
     <>
-      <div className="flex flex-col rounded-xl overflow-hidden shadow-lg p-2 shadow-2 border border-slate-200 hover:border-slate-300 bg-slate-50 cursor-pointer">
+      <div className="flex flex-col rounded-xl overflow-hidden p-2 shadow-lg shadow-purple-400/30 hover:shadow-fuchsia-500/30 hover: border border-fuchsia-00 cursor-pointer">
         <div className="flex flex-row px-6 py-2 justify-between items-center">
           {image && (
             <Image src={image} height={40} width={40} alt="stackoverflow" />
