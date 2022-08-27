@@ -7,15 +7,14 @@ export async function getStaticProps() {
   //   `${process.env.SO_API}&key=${process.env.SO_API_KEY}`
   // );
 
-  const getRepositories = await fetch("http://localhost:8080/trending");
+  const getRepositories = await fetch("http://localhost:8080/helpwanted");
 
   // const stackOverflowAPIResponse = await stackOverflowAPI.json();
   const getRepositoriesResponse = await getRepositories.json();
 
   const response = [
     // ...stackOverflowAPIResponse.items,
-    // TODO: Remap properties inside the scrapers
-    ...getRepositoriesResponse[0].daily,
+    ...getRepositoriesResponse,
   ];
 
   shuffleArray(response);
@@ -24,7 +23,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ cardData }) {
+export default function HelpWanted({ cardData }) {
   return (
     <>
       <Grid cardData={cardData}></Grid>

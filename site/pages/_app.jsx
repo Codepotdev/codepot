@@ -3,9 +3,6 @@ import MainLayout from "../components/layouts/MainLayout";
 import { useState } from "react";
 
 function CpdApp({ Component, pageProps }) {
-
-  console.log(pageProps)
-
   return (
     <MainLayout>
       <Component {...pageProps} />

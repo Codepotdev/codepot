@@ -1,4 +1,5 @@
 import { AppContext } from "@lib/context";
+import Link from "next/link";
 import { useState, useContext } from "react";
 
 export default function Header() {
@@ -13,7 +14,9 @@ export default function Header() {
 
   return (
     <nav className="flex p-6 bg-slate-50">
-      <span className="font-bold text-xl tracking-tighter">codepotdev</span>
+      <Link href="/">
+        <a className="font-bold text-xl tracking-tighter">codepotdev</a>
+      </Link>
 
       <div className="m-auto">
         <span className="font-semibold cursor-pointer p-2">commit</span>
