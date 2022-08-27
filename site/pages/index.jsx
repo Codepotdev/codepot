@@ -1,7 +1,8 @@
-import { Card } from "@components/card";
-import { shuffleArray } from "@lib/shuffle";
+import Grid from "@components/grid/Grid";
+import Filters from "@components/filters/Filters";
+import shuffleArray from "@lib/shuffle";
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   // const stackOverflowAPI = await fetch(
   //   `${process.env.SO_API}&key=${process.env.SO_API_KEY}`
   // );
@@ -20,36 +21,13 @@ export const getStaticProps = async () => {
   return {
     props: { cardData: response },
   };
-};
+}
 
-const Home = ({ cardData }) => {
+export default function Home({ cardData }) {
   return (
     <>
-      <div className="flex my-6">
-        <div className="">
-          <span className="font-semibold border-b-2 p-2  cursor-pointer">
-            Trending
-          </span>
-          <span className="ml-2">|</span>
-          <span className="mx-2 cursor-pointer p-2">Help Wanted</span>
-          <span className="mr-2">|</span>
-          <span className="cursor-pointer p-2">Stackoverflow</span>
-        </div>
-      </div>
-      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-        {cardData.map((cd) => (
-          <Card
-            title={cd.title ? cd.title : cd.name}
-            description={cd.description}
-            image={cd.url ? cd.url : "/stackoverflow.svg"}
-            tags={cd.tags ? cd.tags : cd.topics}
-            link={cd.link ? cd.link : cd.url}
-            key={cd.question_id ? cd.question_id : cd.id}
-          />
-        ))}
-      </div>
+      <Filters></Filters>
+      <Grid cardData={cardData}></Grid>
     </>
   );
-};
-
-export default Home;
+}

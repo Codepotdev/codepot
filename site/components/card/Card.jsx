@@ -1,20 +1,6 @@
 import Image from "next/image";
 
-interface CardProps {
-  title: string;
-  description: string;
-  image: string;
-  tags: Array<string>;
-  link: string;
-}
-
-const Card: React.FC<CardProps> = ({
-  title,
-  description,
-  image,
-  tags,
-  link,
-}) => {
+export default function Card({ title, description, image, tags, link }) {
   return (
     <>
       <div className="flex flex-col rounded-xl overflow-hidden shadow-lg p-2 shadow-2 border border-slate-200 hover:border-slate-300 bg-slate-50 cursor-pointer">
@@ -43,5 +29,4 @@ const Card: React.FC<CardProps> = ({
       </div>
     </>
   );
-};
-export default Card;
+}

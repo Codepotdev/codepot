@@ -1,7 +1,7 @@
 import { AppContext } from "@lib/context";
 import { useState, useContext } from "react";
 
-const Header = () => {
+export default function Header() {
   const [active, setActive] = useState(false);
 
   const [appState, setAppState] = useContext(AppContext);
@@ -24,6 +24,4 @@ const Header = () => {
       </div>
     </nav>
   );
-};
-
-export default Header;
+}
