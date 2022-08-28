@@ -20,7 +20,7 @@ export default function Card({ title, description, image, tags, link }) {
           {tags?.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs` font-semibold text-gray-700 mr-2 mb-2"
+              className="inline-block bg-slate-200 rounded-lg px-3 py-1 text-sm text-gray-700 mr-1 mb-1"
             >
               {tag}
             </span>

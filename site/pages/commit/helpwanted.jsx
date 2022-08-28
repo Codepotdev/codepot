@@ -1,5 +1,4 @@
 import Grid from "@components/grid/Grid";
-import Filters from "@components/filters/Filters";
 import shuffleArray from "@lib/shuffle";
 
 export async function getStaticProps() {

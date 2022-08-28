@@ -1,29 +1,51 @@
-import { AppContext } from "@lib/context";
 import Link from "next/link";
-import { useState, useContext } from "react";
+import { useRouter } from "next/router";
 
 export default function Header() {
-  const [active, setActive] = useState(false);
-
-  const [appState, setAppState] = useContext(AppContext);
-
-  const handleClick = () => {
-    setActive(!active);
-    setAppState(!appState);
-  };
+  const router = useRouter();
 
   return (
     <nav className="flex p-6 bg-slate-50">
-      <Link href="/">
-        <a className="font-bold text-xl tracking-tighter">codepotdev</a>
+      <Link href="/commit/trending">
+        <a className="font-mono text-xl tracking-tighter">codepotdev</a>
       </Link>
 
       <div className="m-auto">
-        <span className="font-semibold cursor-pointer p-2">commit</span>
+        <Link href="/commit">
+          <a
+            className={
+              router.asPath.includes('/commit')
+                ? "mx-2"
+                : "mx-2 font-extralight"
+            }
+          >
+            commit
+          </a>
+        </Link>
 
-        <span className="mx-2 cursor-pointer p-2">read</span>
+        <Link href="/read">
+          <a
+            className={
+              router.asPath.includes('/read')
+                ? "mx-2"
+                : "mx-2 font-extralight"
+            }
+          >
+            read
+          </a>
+        </Link>
 
-        <span className="cursor-pointer p-2">learn</span>
+        <Link href="/learn">
+          <a
+            className={
+              router.asPath.includes('/learn')
+                ? "mx-2"
+                : "mx-2 font-extralight"
+            }
+          >
+            learn
+          </a>
+        </Link>
       </div>
     </nav>
   );
