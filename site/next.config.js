@@ -1,5 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/commit',
+        destination: '/commit/trending',
+        permanent: true,
+      },
+      {
+        source: '/',
+        destination: '/commit/trending',
+        permanent: true,
+      }
+    ]
+  },
   reactStrictMode: true,
   images: {
     domains: [
@@ -12,6 +26,8 @@ const nextConfig = {
       "avatars.githubusercontent.com",
       "i.stack.imgur.com",
       "graph.facebook.com",
+      "api.github.com",
+      "res.cloudinary.com"
     ],
   },
 };

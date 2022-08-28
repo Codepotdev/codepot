@@ -1,4 +1,4 @@
-import Grid from "@components/grid/Grid";
+import Home from "@pages/index.jsx";
 import shuffleArray from "@lib/shuffle";
 
 export async function getStaticProps() {
@@ -23,10 +23,4 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ cardData }) {
-  return (
-    <>
-      <Grid cardData={cardData}></Grid>
-    </>
-  );
-}
+export default Home;

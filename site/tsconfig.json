@@ -25,7 +25,8 @@
       "@commerce": ["../packages/commerce/src"],
       "@commerce/*": ["../packages/commerce/src/*"],
       "@framework": ["../packages/local/src"],
-      "@framework/*": ["../packages/local/src/*"]
+      "@framework/*": ["../packages/local/src/*"],
+      "@data/*": ["data/*"]
     }
   },
   "include": [
@@ -36,6 +37,6 @@
     "**/*.js",
     "pages/_app.jsx",
     "pages/index.jsx"
-  ],
+, "pages/contributions/[cid].jsx", "components/card/Card.jsx"  ],
   "exclude": ["node_modules"]
 }
