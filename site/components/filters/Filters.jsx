@@ -13,8 +13,6 @@ export default function Filters() {
     { name: "Trending", url: "/trending", id: 3 },
   ]);
 
-  console.log(categories);
-
   return (
     <div className="w-full max-w-md px-2 py-16 sm:px-0">
       <Tab.Group>
