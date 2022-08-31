@@ -6,7 +6,7 @@ export async function getStaticProps() {
 
   const getRepositoriesResponse = await getRepositories.json();
 
-  const response = [...getRepositoriesResponse[0].daily];
+  const response = [...getRepositoriesResponse];
 
   shuffleArray(response);
   return {

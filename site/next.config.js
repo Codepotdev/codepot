@@ -27,7 +27,8 @@ const nextConfig = {
       "i.stack.imgur.com",
       "graph.facebook.com",
       "api.github.com",
-      "res.cloudinary.com"
+      "res.cloudinary.com",
+      "github.com"
     ],
   },
 };
