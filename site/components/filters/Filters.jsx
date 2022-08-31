@@ -29,7 +29,7 @@ export default function Filters() {
             Help Wanted
           </a>
         </Link>
-        <Link href="/">
+        <Link href="/commit/stackoverflow">
           <a
             className={
               router.pathname === "/commit/stackoverflow"
