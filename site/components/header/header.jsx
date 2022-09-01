@@ -5,16 +5,16 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <nav className="flex p-6 bg-slate-50">
-      <Link href="/commit/trending">
-        <a className="font-mono text-xl tracking-tighter">codepotdev</a>
+    <nav className="flex border border-b-2 p-6">
+      <Link href="/recent">
+        <a className="text-xl tracking-tighter">codepotdev</a>
       </Link>
 
-      <div className="m-auto">
+      {/* <div className="m-auto">
         <Link href="/commit">
           <a
             className={
-              router.asPath.includes('/commit')
+              router.asPath.includes("/commit")
                 ? "mx-2"
                 : "mx-2 font-extralight"
             }
@@ -26,9 +26,7 @@ export default function Header() {
         <Link href="/read">
           <a
             className={
-              router.asPath.includes('/read')
-                ? "mx-2"
-                : "mx-2 font-extralight"
+              router.asPath.includes("/read") ? "mx-2" : "mx-2 font-extralight"
             }
           >
             read
@@ -38,15 +36,13 @@ export default function Header() {
         <Link href="/learn">
           <a
             className={
-              router.asPath.includes('/learn')
-                ? "mx-2"
-                : "mx-2 font-extralight"
+              router.asPath.includes("/learn") ? "mx-2" : "mx-2 font-extralight"
             }
           >
             learn
           </a>
         </Link>
-      </div>
+      </div> */}
     </nav>
   );
 }

@@ -1,46 +1,37 @@
+import { Tab } from "@headlessui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function Filters() {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+export default function Filters({ filters }) {
   const router = useRouter();
 
   return (
-    router.asPath.includes("/commit") && (
-      <div className="flex my-6">
-        <Link href="/commit/trending">
-          <a
-            className={
-              router.pathname === "/commit/trending"
-                ? "mx-2 border-b-2 border-fuchsia-500/30"
-                : "mx-2 font-extralight"
-            }
-          >
-            Trending
-          </a>
-        </Link>
-        <Link href="/commit/helpwanted">
-          <a
-            className={
-              router.pathname === "/commit/helpwanted"
-                ? "mx-2 border-b-2 border-fuchsia-500/30"
-                : "mx-2 font-extralight"
-            }
-          >
-            Help Wanted
-          </a>
-        </Link>
-        <Link href="/">
-          <a
-            className={
-              router.pathname === "/commit/stackoverflow"
-                ? "mx-2 border-b-2 border-fuchsia-500/30"
-                : "mx-2 font-extralight"
-            }
-          >
-            Stackoverflow
-          </a>
-        </Link>
-      </div>
-    )
+    <div className="m-4 max-w-md">
+      <Tab.Group>
+        <Tab.List className="flex space-x-1 bg-green-800/60 rounded-xl p-1">
+          {filters.map((category) => (
+            <Link href={category.url} key={category.key}>
+              <Tab
+                className={() =>
+                  classNames(
+                    "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-slate-700",
+                    "ring-white ring-opacity-60 ring-offset-2 ring-offset-slate-400 focus:outline-none focus:ring-2",
+                    router.asPath === category.url
+                      ? "bg-white shadow"
+                      : "text-slate-100 hover:bg-white/[0.12] hover:text-white"
+                  )
+                }
+              >
+                <a>{category.name}</a>
+              </Tab>
+            </Link>
+          ))}
+        </Tab.List>
+      </Tab.Group>
+    </div>
   );
 }
