@@ -3,16 +3,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/commit',
-        destination: '/commit/trending',
+        source: "/",
+        destination: "/recent",
         permanent: true,
       },
-      {
-        source: '/',
-        destination: '/commit/trending',
-        permanent: true,
-      }
-    ]
+    ];
   },
   reactStrictMode: true,
   images: {
@@ -28,7 +23,7 @@ const nextConfig = {
       "graph.facebook.com",
       "api.github.com",
       "res.cloudinary.com",
-      "github.com"
+      "github.com",
     ],
   },
 };
