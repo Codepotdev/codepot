@@ -10,15 +10,6 @@ export default function Card({
   id,
   type,
 }) {
-  function getLogoSrc() {
-    if (type === "github-trending") {
-      return "/octocat.png";
-    } else if (type === "stackoverflow_question") {
-      return "/stackoverflow.svg";
-    } else {
-      return "/GitHub_Logo.png";
-    }
-  }
   return (
     <>
       <Link
@@ -48,7 +39,7 @@ export default function Card({
               />
             )}
             <Image
-              src={getLogoSrc()}
+              src={type.includes("github") ? "/octocat.png" : "/stackoverflow.svg"}
               height={50}
               width={50}
               className="rounded"

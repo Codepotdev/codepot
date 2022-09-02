@@ -1,6 +1,4 @@
 repositories = [
-  '4paradigm/OpenMLDB',
-  'mindsdb/mindsdb',
   'apache/apisix',
   'electron-userland/electron-builder'
 ]

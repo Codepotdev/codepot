@@ -2,3 +2,4 @@ scrapy
 pymongo[tls]
 requests
 toml
+python-dotenv

@@ -3,7 +3,7 @@ import pymongo
 
 class MongoPipeline:
 
-    collection_name = 'github_test'
+    collection_name = 'trending_test'
 
     def __init__(self, mongo_uri, mongo_db):
         self.mongo_uri = mongo_uri
@@ -13,7 +13,7 @@ class MongoPipeline:
     def from_crawler(cls, crawler):
         return cls(
             mongo_uri=crawler.settings.get('MONGO_URI'),
-            mongo_db=crawler.settings.get('MONGO_DATABASE', 'github')
+            mongo_db=crawler.settings.get('MONGO_DATABASE', 'codepot')
         )
 
     def open_spider(self, spider):

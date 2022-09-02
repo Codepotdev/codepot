@@ -9,9 +9,8 @@
 
 BOT_NAME = 'github'
 
-SPIDER_MODULES = ['github.spiders']
-NEWSPIDER_MODULE = 'github.spiders'
-
+SPIDER_MODULES = ['spiders']
+NEWSPIDER_MODULE = 'spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'github (+http://www.yourdomain.com)'
@@ -64,10 +63,10 @@ RANDOMIZE_DOWNLOAD_DELAY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'github.pipelines.MongoPipeline': 300
+    'pipelines.MongoPipeline': 300
 }
-MONGO_URI = 'mongodb+srv://user:pass@cluster'
-MONGO_DATABASE = 'dbname'
+MONGO_URI = 'mongodb+srv://'
+MONGO_DATABASE = ''
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
@@ -88,3 +87,11 @@ MONGO_DATABASE = 'dbname'
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+# GITHUB VARS
+GITHUB_TRENDING = 'https://github.com/trending?since=daily'
+GITHUB_REPOS = 'https://api.github.com/repos'
+GITHUB_TOKEN = 'token '
+STACKOVERFLOW_TOKEN = 'token '
+STACKOVERFLOW_QUESTIONS = 'https://api.stackexchange.com/2.3/questions/no-answers?page=1&pagesize=10&order=desc&max=1654128000&sort=activity&site=stackoverflow'
