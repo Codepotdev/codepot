@@ -1,4 +1,0 @@
-scrapy
-pymongo[tls]
-requests
-toml
