@@ -1,5 +1,4 @@
 import Grid from "@components/grid/Grid";
-import shuffleArray from "@lib/shuffle";
 
 export async function getStaticProps() {
   const getHelpWanted = await fetch("http://localhost:8080/helpwanted");
@@ -15,8 +14,6 @@ export async function getStaticProps() {
     ...getHelpWantedResponse,
     ...getQuestionsResponse,
   ];
-
-  shuffleArray(response);
 
   return {
     props: { cardData: response },

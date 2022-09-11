@@ -24,6 +24,7 @@ const nextConfig = {
       "api.github.com",
       "res.cloudinary.com",
       "github.com",
+      "cdn.jsdelivr.net",
     ],
   },
 };

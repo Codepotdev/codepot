@@ -9,6 +9,8 @@ export default function Card({
   link,
   id,
   type,
+  language,
+  imagesrc,
 }) {
   return (
     <>
@@ -33,15 +35,15 @@ export default function Card({
             {image && (
               <Image
                 src={image}
-                height={50}
-                width={50}
+                height={45}
+                width={45}
                 className="rounded-full"
               />
             )}
             <Image
-              src={type.includes("github") ? "/octocat.png" : "/stackoverflow.svg"}
-              height={50}
-              width={50}
+              src={imagesrc ? imagesrc : "/octocat.png"}
+              height={45}
+              width={45}
               className="rounded"
             />
           </div>
