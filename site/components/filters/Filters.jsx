@@ -12,17 +12,17 @@ export default function Filters({ filters }) {
   return (
     <div className="m-4 max-w-md">
       <Tab.Group>
-        <Tab.List className="flex space-x-1 bg-green-800/60 rounded-xl p-1">
+        <Tab.List className="flex space-x-1 bg-dark rounded-xl p-1">
           {filters.map((category) => (
             <Link href={category.url} key={category.key}>
               <Tab
                 className={() =>
                   classNames(
-                    "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-slate-700",
-                    "ring-white ring-opacity-60 ring-offset-2 ring-offset-slate-400 focus:outline-none focus:ring-2",
+                    "w-full rounded-lg py-2.5 text-base leading-5",
+                    "ring-light ring-opacity-60 ring-offset-2 ring-offset-dark focus:outline-none focus:ring-2",
                     router.asPath === category.url
-                      ? "bg-white shadow"
-                      : "text-slate-100 hover:bg-white/[0.12] hover:text-white"
+                      ? "bg-light shadow-brand"
+                      : "text-light hover:bg-light/[0.15]"
                   )
                 }
               >

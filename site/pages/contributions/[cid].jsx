@@ -13,7 +13,7 @@ export default function Contribution() {
       onRequestClose={() => router.push("/")}
       contentLabel="Post modal"
     >
-      <div class="w-96 md:w-auto dark:bg-gray-800 relative flex flex-col justify-center items-center bg-white py-16 px-4 md:px-24 xl:py-24 xl:px-36">
+      <div class="w-96 md:w-auto dark:bg-dark relative flex flex-col justify-center items-center bg-light py-16 px-4 md:px-24 xl:py-24 xl:px-36">
         <div role="banner">
           <img src={data.image}></img>
         </div>
