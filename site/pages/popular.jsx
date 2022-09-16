@@ -1,4 +1,5 @@
 import Grid from "@components/grid/Grid";
+import Filters from "@components/filters/Filters";
 
 export async function getStaticProps() {
   const getRepositories = await fetch("http://localhost:8080/trending");
@@ -12,7 +13,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ cardData }) {
+export default function Popular({ cardData }) {
   return (
     <>
       <Grid cardData={cardData}></Grid>
