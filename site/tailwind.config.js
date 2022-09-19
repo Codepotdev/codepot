@@ -15,9 +15,9 @@ module.exports = {
       'desktop': '1280px',
     },
     colors: {
-      'brand': '#3B82F6',
-      'dark': '#0F172A',
-      'mid': '#CBD5E1',
+      'brand': '#BEF264',
+      'dark': '#3D4C61',
+      'mid': '#E2E8F0',
       'light': '#F8FAFC',
     },
     extend: {},
