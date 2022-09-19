@@ -4,7 +4,7 @@ import Tabs from "@components/tabs/Tabs";
 import { useState } from "react";
 import {
   tabsData,
-  typeFilterData,
+  filtersTypeArray,
   languageFilterData,
 } from "@data/data-share.js";
 
@@ -23,6 +23,7 @@ export async function getStaticProps() {
 function addLanguagesTolanguageFilterData(data) {
   data.forEach((cd, index) => {
     /**
+     * To avoid having duplactes in the array we have to
      * Check if the language is already in the filtered list
      * index must be different from 0 since the array is empty at start
      */
@@ -41,19 +42,29 @@ function addLanguagesTolanguageFilterData(data) {
 export default function Popular({ cardData }) {
   addLanguagesTolanguageFilterData(cardData);
 
-  const [typeFilter, setTypeFilter] = useState("");
-  const [languageFilter, setLanguageFilter] = useState(languageFilterData);
+  const [typeFilter, setTypeFilter] = useState(filtersTypeArray[0]);
+  const [languageFilter, setLanguageFilter] = useState(languageFilterData[0]);
 
   return (
     <>
       <div>
         <section className="flex m-4">
           <Tabs tabs={tabsData}></Tabs>
-          <Filters filterData={typeFilterData}></Filters>
-          <Filters filterData={languageFilter}></Filters>
+          <Filters
+            filterData={filtersTypeArray}
+            selected={typeFilter}
+            onFilterDataChange={setTypeFilter}
+            label={"Type"}
+          ></Filters>
+          <Filters
+            filterData={languageFilterData}
+            selected={languageFilter}
+            onFilterDataChange={setLanguageFilter}
+            label={"Language"}
+          ></Filters>
         </section>
       </div>
-      <Grid cardData={cardData}></Grid>
+      <Grid cardData={cardData} typeFilter={typeFilter} languageFilter={languageFilter}></Grid>
     </>
   );
 }

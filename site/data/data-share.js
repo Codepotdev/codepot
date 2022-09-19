@@ -3,7 +3,7 @@ export const tabsData = [
   { name: "Help Wanted", url: "/helpwanted", key: "helpwanted" },
 ];
 
-export const typeFilterData = [
+export const filtersTypeArray = [
   { name: "All", key: "all" },
   { name: "Repositories", key: "repositories" },
   { name: "Questions", key: "questions" },
@@ -11,5 +11,3 @@ export const typeFilterData = [
 ];
 
 export const languageFilterData = [{ name: "All", key: "all" }];
-
-export var ddd = [{ name: "All", key: "all" }];

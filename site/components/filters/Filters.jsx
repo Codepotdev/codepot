@@ -2,13 +2,22 @@ import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
-export default function Filters({ filterData }) {
-  const [selected, setSelected] = useState(filterData[0]);
+export default function Filters({
+  selected,
+  filterData,
+  onFilterDataChange,
+  label,
+}) {
   return (
     <div className="flex items-center z-50">
-      <label className="mx-3">Language: </label>
+      <label className="mx-3">{label}:</label>
       <>
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox
+          value={selected}
+          onChange={(e) => {
+            onFilterDataChange(e);
+          }}
+        >
           <div className="relative mt-1 w-36">
             <Listbox.Button className="relative h-8 w-full cursor-pointer rounded-lg bg-light py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-light focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-brand sm:text-sm">
               <span className="block truncate">{selected.name}</span>
