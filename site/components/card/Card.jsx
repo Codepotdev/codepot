@@ -37,14 +37,14 @@ export default function Card({
                 src={image}
                 height={45}
                 width={45}
-                className="rounded-full"
+                className="rounded-full z-10"
               />
             )}
             <Image
               src={imagesrc ? imagesrc : "/octocat.png"}
               height={45}
               width={45}
-              className="rounded"
+              className="rounded z-10"
             />
           </div>
           <div className="px-6 py-4">

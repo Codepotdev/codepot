@@ -1,9 +1,7 @@
 import Card from "@components/card/Card";
 import devicon from "@data/devicon.json";
-import { useState } from "react";
 
 export default function Grid({ cardData }) {
-
   function getImageSrc(lang) {
     let lowerCasedTrimmedLang = lang.replace(/\s/g, "").toLowerCase();
     let imageSrcPath;
