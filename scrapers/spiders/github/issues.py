@@ -50,7 +50,7 @@ class IssuesSpider(scrapy.Spider):
             repo_item['url'] = repo.get('html_url')
             repo_item['language'] = language
             repo_item['image'] = repo['user'].get('avatar_url')
-            repo_item['type'] = 'github-issues'
+            repo_item['type'] = 'question'
             repos.append(repo_item)
         return repos
 
