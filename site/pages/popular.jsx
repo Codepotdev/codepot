@@ -64,7 +64,11 @@ export default function Popular({ cardData }) {
           ></Filters>
         </section>
       </div>
-      <Grid cardData={cardData} typeFilter={typeFilter} languageFilter={languageFilter}></Grid>
+      <Grid
+        cardData={cardData}
+        typeFilter={typeFilter}
+        languageFilter={languageFilter}
+      ></Grid>
     </>
   );
 }

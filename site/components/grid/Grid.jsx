@@ -27,13 +27,34 @@ function getImageSrc(lang) {
   return imageSrcPath;
 }
 
-export default function Grid({ cardData, languageFilter }) {
+export default function Grid({ cardData, typeFilter, languageFilter }) {
+  const filteredData = [];
+
+  cardData.forEach((cd) => {
+    if (typeFilter.key === "all") {
+      if (languageFilter.key === "all") {
+        filteredData.push(cd);
+      } else if (
+        languageFilter.name.toLowerCase() === cd.language.toLowerCase()
+      ) {
+        filteredData.push(cd);
+      }
+    } else if (typeFilter.key === cd.type) {
+      if (languageFilter.key === "all") {
+        filteredData.push(cd);
+      } else if (
+        languageFilter.name.toLowerCase() === cd.language.toLowerCase()
+      ) {
+        filteredData.push(cd);
+      }
+    }
+  });
+  // console.log(rows);
   return (
     <>
       <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-        {cardData.map((cd) => {
-          return languageFilter.name === "All" ||
-            cd.language === languageFilter.name ? (
+        {filteredData.length > 0 ? (
+          filteredData.map((cd) => (
             <Card
               title={cd.title}
               description={cd.description}
@@ -46,10 +67,12 @@ export default function Grid({ cardData, languageFilter }) {
               language={cd.language}
               imagesrc={getImageSrc(cd.language)}
             />
-          ) : (
-            ""
-          );
-        })}
+          ))
+        ) : (
+          <h1 class="m-32s font-medium leading-tight text-5xl text-dark/60">
+            No results found..
+          </h1>
+        )}
       </div>
     </>
   );
