@@ -11,9 +11,9 @@ function CpdApp({ Component, pageProps }) {
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
         />
       </Head>
-      <MainLayout>
-        <Component {...pageProps} />
-      </MainLayout>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
     </>
   );
 }

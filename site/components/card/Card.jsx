@@ -30,21 +30,21 @@ export default function Card({
         }}
         as={`/contributions/${id}`}
       >
-        <div className="flex flex-col bg-slate-100 rounded-3xl overflow-hidden p-2 shadow-lg cursor-pointer">
+        <div className="flex flex-col bg-light/[0.50] rounded-3xl overflow-hidden p-2 shadow-lg cursor-pointer">
           <div className="flex flex-row px-6 py-2 justify-between items-center">
             {image && (
               <Image
                 src={image}
                 height={45}
                 width={45}
-                className="rounded-full"
+                className="rounded-full z-10"
               />
             )}
             <Image
               src={imagesrc ? imagesrc : "/octocat.png"}
               height={45}
               width={45}
-              className="rounded"
+              className="rounded z-10"
             />
           </div>
           <div className="px-6 py-4">
@@ -58,7 +58,7 @@ export default function Card({
             {tags?.slice(0, 4).map((tag) => (
               <span
                 key={tag}
-                className="inline-block bg-slate-200 rounded-lg px-3 py-1 text-sm text-gray-700 mr-1 mb-1"
+                className="inline-block bg-dark/[0.10] border-2 border-brand/[0.10] rounded-full px-3 py-1 text-sm mr-1 mb-1"
               >
                 {"#" + tag}
               </span>

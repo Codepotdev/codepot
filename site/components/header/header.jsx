@@ -5,9 +5,11 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <nav className="flex border border-b-2 p-6">
+    <nav className="flex border bg-dark border-b-0.5 p-6">
       <Link href="/recent">
-        <a className="text-xl tracking-tighter">codepotdev</a>
+        <a className="text-xl tracking-tighter text-brand font-bold">
+          codepotdev
+        </a>
       </Link>
     </nav>
   );

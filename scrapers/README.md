@@ -5,7 +5,7 @@ This scrapers are used to get data from GitHub that is not returned by GitHub AP
 ### Install :minidisc:
 
 ```
-cd github && pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Run Trending Scraper :checkered_flag:
