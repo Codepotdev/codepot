@@ -2,10 +2,7 @@ import Grid from "@components/grid/Grid";
 import Filters from "@components/filters/Filters";
 import Tabs from "@components/tabs/Tabs";
 import { useState } from "react";
-import {
-  tabsData,
-  filtersTypeArray,
-} from "@data/data-share.js";
+import { tabsData, filtersTypeArray } from "@data/data-share.js";
 import { addLanguagesTolanguageFilterData } from "@lib/utils.js";
 
 export async function getStaticProps() {
@@ -23,11 +20,10 @@ export async function getStaticProps() {
 }
 
 export default function HelpWanted({ cardData }) {
-  const languageFilterData = addLanguagesTolanguageFilterData(cardData);
-
+  const languageFilterList = addLanguagesTolanguageFilterData(cardData);
   const [typeFilter, setTypeFilter] = useState(filtersTypeArray[0]);
-  const [languageFilter, setLanguageFilter] = useState(languageFilterData[0]);
-
+  const [languageFilter, setLanguageFilter] = useState(languageFilterList[0]);
+  
   return (
     <>
       <div>
@@ -40,7 +36,7 @@ export default function HelpWanted({ cardData }) {
             label={"Type"}
           ></Filters>
           <Filters
-            filterData={languageFilterData}
+            filterData={languageFilterList}
             selected={languageFilter}
             onFilterDataChange={setLanguageFilter}
             label={"Language"}

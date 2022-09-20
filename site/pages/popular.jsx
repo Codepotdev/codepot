@@ -18,10 +18,9 @@ export async function getStaticProps() {
 }
 
 export default function Popular({ cardData }) {
-  const languageFilterData = addLanguagesTolanguageFilterData(cardData);
-
+  const languageFilterList = addLanguagesTolanguageFilterData(cardData);
   const [typeFilter, setTypeFilter] = useState(filtersTypeArray[0]);
-  const [languageFilter, setLanguageFilter] = useState(languageFilterData[0]);
+  const [languageFilter, setLanguageFilter] = useState(languageFilterList[0]);
 
   return (
     <>
@@ -35,7 +34,7 @@ export default function Popular({ cardData }) {
             label={"Type"}
           ></Filters>
           <Filters
-            filterData={languageFilterData}
+            filterData={languageFilterList}
             selected={languageFilter}
             onFilterDataChange={setLanguageFilter}
             label={"Language"}

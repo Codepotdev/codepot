@@ -4,9 +4,8 @@ export const tabsData = [
 ];
 
 export const filtersTypeArray = [
-  { name: "All", key: "all" },
-  { name: "Repositories", key: "github-issues" },
-  { name: "Questions", key: "stackoverflow_question" },
-  { name: "Blogs", key: "blogs" },
+  { key: "all", name: "All" },
+  { key: "repository", name: "Repositories" },
+  { key: "question", name: "Questions" },
+  { key: "blogs", name: "Blogs" },
 ];
-
