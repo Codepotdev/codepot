@@ -31,7 +31,7 @@ class QuestionsSpider(scrapy.Spider):
             question['tags'] = q.get('tags')
             question['url'] = q.get('link')
             question['image'] = q['owner'].get('profile_image')
-            question['type'] = 'stackoverflow_question'
+            question['type'] = 'question'
             question['language'] = q.get('tags')[0]
             questions.append(question)
         return questions
