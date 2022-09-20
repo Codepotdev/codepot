@@ -40,7 +40,7 @@ class TrendingSpider(scrapy.Spider):
             repo_item['url'] = repo.get('html_url')
             repo_item['language'] = language
             repo_item['image'] = repo['owner'].get('avatar_url')
-            repo_item['type'] = 'github-trending'
+            repo_item['type'] = 'repository'
             repos.append(repo_item)
         return repos
 
