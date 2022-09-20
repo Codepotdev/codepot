@@ -10,4 +10,3 @@ export const filtersTypeArray = [
   { name: "Blogs", key: "blogs" },
 ];
 
-export const languageFilterData = [{ name: "All", key: "all" }];

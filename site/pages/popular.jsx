@@ -2,11 +2,8 @@ import Grid from "@components/grid/Grid";
 import Filters from "@components/filters/Filters";
 import Tabs from "@components/tabs/Tabs";
 import { useState } from "react";
-import {
-  tabsData,
-  filtersTypeArray,
-  languageFilterData,
-} from "@data/data-share.js";
+import { tabsData, filtersTypeArray } from "@data/data-share.js";
+import { addLanguagesTolanguageFilterData } from "@lib/utils.js";
 
 export async function getStaticProps() {
   const getRepositories = await fetch("http://localhost:8080/trending");
@@ -20,27 +17,8 @@ export async function getStaticProps() {
   };
 }
 
-function addLanguagesTolanguageFilterData(data) {
-  data.forEach((cd, index) => {
-    /**
-     * To avoid having duplactes in the array we have to
-     * Check if the language is already in the filtered list
-     * index must be different from 0 since the array is empty at start
-     */
-    if (
-      !languageFilterData.filter((e) => e.name === cd.language).length > 0 &&
-      index !== 0
-    ) {
-      languageFilterData.push({
-        name: cd.language,
-        id: cd.language,
-      });
-    }
-  });
-}
-
 export default function Popular({ cardData }) {
-  addLanguagesTolanguageFilterData(cardData);
+  const languageFilterData = addLanguagesTolanguageFilterData(cardData);
 
   const [typeFilter, setTypeFilter] = useState(filtersTypeArray[0]);
   const [languageFilter, setLanguageFilter] = useState(languageFilterData[0]);
