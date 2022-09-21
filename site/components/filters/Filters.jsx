@@ -9,13 +9,13 @@ export default function Filters({
   label,
 }) {
   return (
-    <div className="flex items-center z-50">
+    <div className="flex self-stretch items-center z-50">
       <label className="mx-3">{label}:</label>
       <>
         <Listbox value={selected} onChange={(e) => onFilterDataChange(e)}>
           <div className="relative mt-1 w-36">
             <Listbox.Button className="relative h-8 w-full cursor-pointer rounded-lg bg-slate-50 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-slate-200 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-brand sm:text-sm">
-              <span className="block truncate">{selected.name}</span>
+              <span className="block truncate capitalize">{selected.name}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <ChevronUpDownIcon
                   className="h-5 w-5 text-gray-400"
@@ -43,7 +43,7 @@ export default function Filters({
                     {({ selected }) => (
                       <>
                         <span
-                          className={`block truncate ${
+                          className={`capitalize block truncate ${
                             selected ? "font-medium" : "font-normal"
                           }`}
                         >
