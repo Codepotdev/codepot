@@ -69,7 +69,7 @@ export default function Grid({ cardData, typeFilter, languageFilter }) {
             />
           ))
         ) : (
-          <h1 class="m-32s font-medium leading-tight text-5xl text-dark/60">
+          <h1 class="m-32 font-medium leading-tight text-5xl text-black">
             No results found..
           </h1>
         )}

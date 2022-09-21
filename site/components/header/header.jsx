@@ -11,10 +11,13 @@ export default function Header() {
         </a>
       </Link>
 
+      <span className="text-md tracking-tighter mx-4 text-black ml-auto">Contribution guidelines</span>
+      <span className="text-md tracking-tighter mx-4 text-black ">About us</span>
+
       <a
         href="https://github.com/Codepotdev/codepot"
         target="_blank"
-        className="flex text-md tracking-tighter text-black ml-auto"
+        className="text-md ml-10 tracking-tighter"
       >
         <Image
           src={"/githubmarkdark.png"}
