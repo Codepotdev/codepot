@@ -1,4 +1,6 @@
 repositories = [
   'apache/apisix',
-  'electron-userland/electron-builder'
+  'electron-userland/electron-builder',
+  'freeCodeCamp/freeCodeCamp',
+  'desktop/desktop'
 ]
