@@ -5,7 +5,7 @@ import feedparser
 
 class DevtoSpider(scrapy.Spider):
     """
-    Get Hashnode Trending blogs per tags
+    Get Dev.to blogs per tags
     """
     name = "devto_blogs"
 
