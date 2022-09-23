@@ -14,7 +14,13 @@ module.exports = {
       'laptop': '1024px',
       'desktop': '1280px',
     },
-    extend: {},
+    extend: {
+      colors:{
+        brand: {
+          600: '#30a339'
+        }
+      }
+    },
   },
   plugins: [],
 };
