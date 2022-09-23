@@ -30,7 +30,7 @@ export default function Card({
         }}
         as={`/contributions/${id}`}
       >
-        <div className="flex flex-col bg-slate-200/50 rounded-3xl overflow-hidden p-2 shadow-lg cursor-pointer">
+        <div className="flex flex-col border-2 border-slate-100 hover:border-slate-200 bg-slate-200/50 rounded-3xl overflow-hidden p-2 shadow-lg cursor-pointer">
           <div className="flex flex-row px-6 py-2 justify-between items-center">
             {image && (
               <Image
@@ -55,10 +55,10 @@ export default function Card({
           </div>
           <div className="mb-auto"></div>
           <div className="px-6 pt-4 pb-2">
-            {tags?.slice(0, 4).map((tag) => (
+            {tags?.slice(0, 2).map((tag) => (
               <span
                 key={tag}
-                className="inline-block bg-slate-50 border-2 rounded-full px-3 py-1 text-sm mr-1 mb-1"
+                className="inlipne-block bg-slate-50 border-2 rounded-full px-3 py-1 text-sm mr-1 mb-1"
               >
                 {"#" + tag}
               </span>

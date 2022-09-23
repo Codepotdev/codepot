@@ -10,7 +10,7 @@ export default function Tabs({ tabs }) {
   const router = useRouter();
 
   return (
-    <div className="grow max-w-md mr-auto">
+    <div className="grow max-w-md border-2 border-slate-100 mr-auto">
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl p-1 bg-slate-20 shadow-md focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-light focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-500 sm:text-sm">
           {tabs.map((category) => (
