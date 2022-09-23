@@ -50,7 +50,7 @@ export default function Filters({
                           {lang.name}
                         </span>
                         {selected ? (
-                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-dark">
+                          <span className="absolute inset-y-0 text-brand-600 left-0 flex items-center pl-3 text-dark">
                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
                           </span>
                         ) : null}

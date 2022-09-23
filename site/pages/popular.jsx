@@ -8,7 +8,10 @@ import { addLanguagesTolanguageFilterData } from "@lib/utils.js";
 export async function getStaticProps() {
   const getRepositories = await fetch("http://localhost:8080/trending");
 
+  // const getBlogs = await fetch("http://localhost:8080/blogs");
+
   const getRepositoriesResponse = await getRepositories.json();
+  // const getBlogsResponse = await getBlogs.json();
 
   const response = [...getRepositoriesResponse];
 
