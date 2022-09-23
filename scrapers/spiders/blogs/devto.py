@@ -1,36 +1,39 @@
-import json
+import scrapy
 from items import Item
+import feedparser
 
-devtoFeedUrl = "https://dev.to/feed"
 
-
-def devto_rss(rss=None):
+class DevtoSpider(scrapy.Spider):
     """
-    Take link of rss feed as argument
+    Get Hashnode Trending blogs per tags
     """
-    if rss is not None:
-        import feedparser
-        blog_feed = blog_feed = feedparser.parse(rss)
+    name = "devto_blogs"
 
+    def start_requests(self):
+        """
+        Start calls to the provided url's
+        """
+        url = 'https://dev.to/feed/tag/'
+        tags = ['javascript', 'python', 'typescript', 'java', 'php']
+        for tag in tags:
+            yield scrapy.Request(url=f'{url}{tag}', callback=self.parse,
+                                meta={'tag': tag})
+
+    def parse(self, response):
+        """
+        Parse the response object and select the blog
+        """
+        blogs = []
+        blog_feed = feedparser.parse(response.body)
         posts = blog_feed.entries
-        post_list = []
-
         for post in posts:
-            try:
-                temp = Item()
-                temp["title"] = post.title
-                temp["link"] = post.link
-                temp["author"] = post.author
-                temp["time_published"] = post.published
-                temp["language"] = post.category
-                temp["tags"] = [post.term for post in post.tags]
-                temp["image"] = post.image
-            except:
-                pass
-            post_list.append(temp)
-        return post_list
-    else:
-        return None
-
-
-print(json.dumps(devto_rss(devtoFeedUrl), indent=2))
+            item = Item()
+            item["title"] = post.title
+            item["url"] = post.link
+            item["description"] = post.description
+            item["type"] = "blog"
+            item["tags"] = post.get('category')
+            item["language"] = response.meta.get('tag')
+            blogs.append(item)
+        return blogs
+       
