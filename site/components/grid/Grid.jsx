@@ -1,31 +1,5 @@
 import Card from "@components/card/Card";
-import devicon from "@data/devicon.json";
-
-function getImageSrc(lang) {
-  let lowerCasedTrimmedLang = lang.replace(/\s/g, "").toLowerCase();
-  let imageSrcPath;
-  devicon.forEach((icon) => {
-    if (
-      lowerCasedTrimmedLang.startsWith("c") &&
-      lowerCasedTrimmedLang.endsWith("+")
-    ) {
-      lowerCasedTrimmedLang = "cplusplus";
-    }
-    if (lowerCasedTrimmedLang == "reactjs") {
-      lowerCasedTrimmedLang = "react";
-    }
-    if (lowerCasedTrimmedLang == "dockerfile") {
-      lowerCasedTrimmedLang = "docker";
-    }
-    if (lowerCasedTrimmedLang == "jupyternotebook") {
-      lowerCasedTrimmedLang = "jupyter";
-    }
-    if (icon.name.includes(lowerCasedTrimmedLang)) {
-      imageSrcPath = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon.name}/${icon.name}-${icon.versions.svg[0]}.svg`;
-    }
-  });
-  return imageSrcPath;
-}
+import { getHexColor, getImageSrc, getCardMessage } from "@lib/utils.js";
 
 export default function Grid({ cardData, typeFilter, languageFilter }) {
   const filteredData = [];
@@ -66,6 +40,8 @@ export default function Grid({ cardData, typeFilter, languageFilter }) {
               key={cd._id}
               language={cd.language}
               imagesrc={getImageSrc(cd.language)}
+              color={getHexColor(cd.language)}
+              message={getCardMessage(cd.type, cd.language)}
             />
           ))
         ) : (
