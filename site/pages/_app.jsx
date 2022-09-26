@@ -14,7 +14,7 @@ function CpdApp({ Component, pageProps }) {
         />
 
         <title>codepot.dev - Developer Dashboard</title>
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/codepot.svg" />
       </Head>
       <MainLayout>
         {/* <HeroModal></HeroModal> */}
