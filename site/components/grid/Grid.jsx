@@ -1,5 +1,31 @@
 import Card from "@components/card/Card";
-import { getHexColor, getImageSrc, getCardMessage } from "@lib/utils.js";
+import devicon from "@data/devicon.json";
+
+function getImageSrc(lang) {
+  let lowerCasedTrimmedLang = lang.replace(/\s/g, "").toLowerCase();
+  let imageSrcPath;
+  devicon.forEach((icon) => {
+    if (
+      lowerCasedTrimmedLang.startsWith("c") &&
+      lowerCasedTrimmedLang.endsWith("+")
+    ) {
+      lowerCasedTrimmedLang = "cplusplus";
+    }
+    if (lowerCasedTrimmedLang == "reactjs") {
+      lowerCasedTrimmedLang = "react";
+    }
+    if (lowerCasedTrimmedLang == "dockerfile") {
+      lowerCasedTrimmedLang = "docker";
+    }
+    if (lowerCasedTrimmedLang == "jupyternotebook") {
+      lowerCasedTrimmedLang = "jupyter";
+    }
+    if (icon.name.includes(lowerCasedTrimmedLang)) {
+      imageSrcPath = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon.name}/${icon.name}-${icon.versions.svg[0]}.svg`;
+    }
+  });
+  return imageSrcPath;
+}
 
 export default function Grid({ cardData, typeFilter, languageFilter }) {
   const filteredData = [];
@@ -26,7 +52,7 @@ export default function Grid({ cardData, typeFilter, languageFilter }) {
 
   return (
     <>
-      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+      <div className="grid items-stretch gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
         {filteredData.length > 0 ? (
           filteredData.map((cd) => (
             <Card
@@ -40,8 +66,6 @@ export default function Grid({ cardData, typeFilter, languageFilter }) {
               key={cd._id}
               language={cd.language}
               imagesrc={getImageSrc(cd.language)}
-              color={getHexColor(cd.language)}
-              message={getCardMessage(cd.type, cd.language)}
             />
           ))
         ) : (

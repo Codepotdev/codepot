@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <nav className="flex grow items-center border-b-2 bg-slate-50 p-4 px-8">
-      <a href="/popular" className="flex items-center text-xl tracking-tighter text-black ">
-        <Image src={"/codepot.svg"} layout="fixed" height={60} width={60} />
+    <nav className="flex grow items-center border-b-2 bg-slate-50 p-2 px-4">
+      <a href="/popular" className="flex items-center text-lg tracking-tighter text-black ">
+        <Image src={"/codepot.svg"} layout="fixed" height={40} width={40} />
         codepot<span className="text-brand-600">dev</span>
       </a>
       <span className="text-md tracking-tighter mx-4 text-black ml-auto">
@@ -22,8 +22,8 @@ export default function Header() {
       >
         <Image
           src={"/githubmarkdark.png"}
-          height={40}
-          width={40}
+          height={30}
+          width={30}
           className="rounded z-10"
         />
       </a>

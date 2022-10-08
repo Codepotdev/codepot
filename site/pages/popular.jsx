@@ -27,15 +27,9 @@ export default function Popular({ cardData }) {
 
   return (
     <>
-      <div>
+      {/* <div>
         <section className="flex m-4">
           <Tabs tabs={tabsData}></Tabs>
-          <Filters
-            filterData={filtersTypeArray}
-            selected={typeFilter}
-            onFilterDataChange={setTypeFilter}
-            label={"Type"}
-          ></Filters>
           <Filters
             filterData={languageFilterList}
             selected={languageFilter}
@@ -43,7 +37,7 @@ export default function Popular({ cardData }) {
             label={"Language"}
           ></Filters>
         </section>
-      </div>
+      </div> */}
       <Grid
         cardData={cardData}
         typeFilter={typeFilter}
