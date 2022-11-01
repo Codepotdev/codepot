@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/popular",
-        permanent: true,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/",
+  //       destination: "/popular",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
   reactStrictMode: true,
   images: {
     domains: [

@@ -14,7 +14,7 @@ export default function Card({
 }) {
   return (
     <>
-      <div className="flex flex-col h-full w-full border-2 border-t-brand-600/10 border-r-brand-600/20 bg-slate-100/60 rounded-2xl p-4 shadow-lg cursor-pointer">
+      <div className="flex snap-start snap-mandatory h-50 flex-col border-t-brand-600/10 border-r-brand-600/20 bg-slate-100/60 rounded-2xl p-4 cursor-pointer">
         <div className="flex justify-between my-2">
           <Image
             src={image}
@@ -29,10 +29,10 @@ export default function Card({
             className="rounded z-10"
           />
         </div>
-        <div className="flex justify-between mb-2">
+        <div className="flex justify-between w-80 mb-2">
           <h5 className="text-gray-900 text-lg overflow-hidden">{title}</h5>
         </div>
-        <p className="text-gray-600 text-sm h-20  overflow-hidden">
+        <p className="text-gray-600 text-sm overflow-hidden">
           {description ? description.slice(0, 100) + "..." : null}
         </p>
       </div>

@@ -1,8 +1,6 @@
 import "../styles/globals.css";
-import HeroModal from "@components/hero-modal/HeroModal";
 import MainLayout from "../components/layouts/MainLayout";
 import Head from "next/head";
-import Image from "next/image";
 
 function CpdApp({ Component, pageProps }) {
   return (
