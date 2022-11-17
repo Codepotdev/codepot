@@ -1,30 +1,33 @@
 import Image from "next/image";
-import Link from "next/link";
 
-export default function Header() {
+export default function Header({ theme, onThemeChange }) {
   return (
-    <nav className="flex grow items-center border-b-2 bg-slate-50 p-4 px-8">
-      <a href="/popular" className="flex items-center text-xl tracking-tighter text-black ">
-        <Image src={"/codepot.svg"} layout="fixed" height={60} width={60} />
-        codepot<span className="text-brand-600">dev</span>
+    <nav className="flex items-center border-b-2 border-on-background p-3 px-4 ">
+      <a href="/home" className="flex items-center">
+        {/* <Image src={"/codepot.svg"} height={30} width={30}/> */}
+        <span className="text-lg text-color-default">
+          codepot
+        </span>
+        <span className="text-lg text-color-primary">dev</span>
       </a>
-      <span className="text-md tracking-tighter mx-4 text-black ml-auto">
+      <a
+        onClick={() => onThemeChange(theme ? "" : "dark")}
+        className="text-color-default ml-auto"
+      >
+        Toggle Theme
+      </a>
+      <span className="mx-4 text-color-default ">
         Contribution guidelines
       </span>
-      <span className="text-md tracking-tighter mx-4 text-black ">
+      <span className="mx-4 text-color-default">
         About us
       </span>
 
-      <a
-        href="https://github.com/Codepotdev/codepot"
-        target="_blank"
-        className="text-md ml-10 tracking-tighter"
-      >
+      <a href="https://github.com/Codepotdev/codepot" target="_blank">
         <Image
-          src={"/githubmarkdark.png"}
-          height={40}
-          width={40}
-          className="rounded z-10"
+          src={theme ? "/githubmark.png" : "/githubmarkdark.png"}
+          height={25}
+          width={25}
         />
       </a>
     </nav>

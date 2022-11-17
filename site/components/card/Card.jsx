@@ -30,7 +30,7 @@ export default function Card({
         }}
         as={`/contributions/${id}`}
       >
-        <div className="flex flex-col border-2 border-slate-100 hover:border-slate-200 bg-slate-200/50 rounded-3xl overflow-hidden p-2 shadow-lg cursor-pointer">
+        <div className="flex flex-col  rounded-3xl overflow-hidden p-2 shadow-lg cursor-pointer">
           <div className="flex flex-row px-6 py-2 justify-between items-center">
             {image && (
               <Image
