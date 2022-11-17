@@ -4,8 +4,8 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/popular",
-        permanent: true,
+        destination: "/home",
+        permanent: false,
       },
     ];
   },
