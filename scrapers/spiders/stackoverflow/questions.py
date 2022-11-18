@@ -33,6 +33,7 @@ class QuestionsSpider(scrapy.Spider):
             question['name'] = q['owner'].get('display_name')
             question['tags'] = q.get('tags')
             question['image'] = q['owner'].get('profile_image')
+            
             questions.append(question)
         return questions
 
