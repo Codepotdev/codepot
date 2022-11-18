@@ -3,3 +3,5 @@ pymongo[tls]
 requests
 toml
 python-dotenv
+bs4
+markdown
