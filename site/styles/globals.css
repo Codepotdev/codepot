@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
 body {
-  padding: 0;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   margin: 0;
+  padding: 0;
 }
 
-* {
-  box-sizing: border-box;
+@layer components {
+  .text-color-default {
+    @apply text-on-background dark:text-dark-on-background;
+  }
+  .text-color-primary {
+    @apply text-primary dark:text-dark-primary;
+  }
+
+  .text-color-primary-variant {
+    @apply text-primary-variant dark:text-dark-primary-variant;
+  }
+
+  .prose-default {
+    @apply prose text-color-default
+  }
 }

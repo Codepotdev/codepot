@@ -38,7 +38,8 @@
     "pages/_app.jsx",
     "pages/index.jsx",
     "pages/contributions/[cid].jsx",
-    "components/card/Card.jsx"
+    "components/card/Card.jsx",
+    "pages/dashboard/explore.jsx"
   ],
   "exclude": ["node_modules"]
 }

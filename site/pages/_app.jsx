@@ -1,24 +1,22 @@
 import "../styles/globals.css";
 import MainLayout from "../components/layouts/MainLayout";
 import Head from "next/head";
+import { useState } from "react";
 
 function CpdApp({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-        />
+  const [theme, setTheme] = useState("dark");
 
+  return (
+    <div className={theme}>
+      <Head>
         <title>codepot.dev - Developer Dashboard</title>
         <link rel="shortcut icon" href="/codepot.svg" />
       </Head>
-      <MainLayout>
-        {/* <HeroModal></HeroModal> */}
+
+      <MainLayout theme={theme} onThemeChange={setTheme}>
         <Component {...pageProps} />
       </MainLayout>
-    </>
+    </div>
   );
 }
 
