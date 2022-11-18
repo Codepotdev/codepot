@@ -16,20 +16,18 @@ export default function Home() {
           sites to apps. Choose from a range of courses that will appeal to
         </p>
       </div>
-      <div className="lg:prose-xl text-center">
+      <div className="prose-default lg:prose-xl text-center">
         <h1 className="text-color-primary">
           The ultimate developer dashboards:{" "}
         </h1>
-        <div className="grid grid-cols-3 px-4 marker:text-color-primary  border-primary-variant">
-          <span className="border-2 border-primary p-4">
+        <div className="grid grid-cols-3 marker:text-color-primary  border-primary-variant">
+          <span className="border-2 border-primary p-2">
             Contributor Dashboard
           </span>
-          <span className="border-y-2 border-primary p-4">
+          <span className="border-y-2 border-primary p-2">
             Trends Dashboard
           </span>
-          <span className="border-2 border-primary p-4">
-            Learn Dashboard
-          </span>
+          <span className="border-2 border-primary p-2">Learn Dashboard</span>
         </div>
       </div>
     </div>
