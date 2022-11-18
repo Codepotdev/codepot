@@ -1,7 +1,7 @@
 import scrapy
 from items import Item
 from scrapy.utils.project import get_project_settings
-
+import helpers
 
 class QuestionsSpider(scrapy.Spider):
     """
@@ -27,12 +27,12 @@ class QuestionsSpider(scrapy.Spider):
         for q in data['items']:
             question = Item()
             question['id'] = q.get('question_id')
+            question['type'] = 'contribute'
             question['title'] = q.get('title')
+            question['description'] = helpers.html_to_text(q.get('body'))
+            question['name'] = q['owner'].get('display_name')
             question['tags'] = q.get('tags')
-            question['url'] = q.get('link')
             question['image'] = q['owner'].get('profile_image')
-            question['type'] = 'question'
-            question['language'] = q.get('tags')[0]
             questions.append(question)
         return questions
 
