@@ -15,25 +15,24 @@ class DevtoSpider(scrapy.Spider):
         """
         url = 'https://dev.to/feed/tag/'
         tags = ['javascript', 'python', 'typescript', 'java', 'php']
-        for tag in tags:
-            yield scrapy.Request(url=f'{url}{tag}', callback=self.parse,
-                                meta={'tag': tag})
+        #for tag in tags:
+        yield scrapy.Request(url='https://dev.to/api/articles', callback=self.parse)
 
     def parse(self, response):
         """
         Parse the response object and select the blog
         """
         blogs = []
-        blog_feed = feedparser.parse(response.body)
-        posts = blog_feed.entries
+        posts = response.json()
         for post in posts:
             item = Item()
-            item["title"] = post.title
-            item["url"] = post.link
-            item["description"] = post.description
-            item["type"] = "blog"
-            item["tags"] = post.get('category')
-            item["language"] = response.meta.get('tag')
+            item['id'] = post.get('id')
+            item["title"] = post.get('title')
+            item['type'] = 'expand'
+            item["description"] = post.get('description')
+            item["tags"] = post.get('tag_list')      
+            item['image'] = post['user'].get('profile_image')
+            item['name'] = post['user'].get('name')
             blogs.append(item)
         return blogs
        
