@@ -1,3 +1,6 @@
+import Card from "@components/card/Card";
+import { cardData } from "@data/data-share";
+
 export default function Home() {
   return (
     <div className="grid grid-cols-2 text-color-default">
@@ -29,6 +32,20 @@ export default function Home() {
           </span>
           <span className="border-2 border-primary p-2">Learn Dashboard</span>
         </div>
+      </div>
+      <div></div>
+      <div className="grid grid-cols-5">
+        {cardData.map((cd) => (
+          <Card
+            id={cd.id}
+            type={cd.type}
+            name={cd.name}
+            title={cd.title}
+            description={cd.description}
+            tags={cd.tags}
+            image={cd.image}
+          ></Card>
+        ))}
       </div>
     </div>
   );
