@@ -26,17 +26,16 @@ class TrendingSpider(scrapy.Spider):
         list = response.xpath('//div[@class="js-projects-list-holder"]//ul')
         api_url = 'https://gitlab.com/api/v4/projects/'
         for i, li in enumerate(list.css('.project-row')):
-            name = li.xpath('//a[@class="text-plain js-prefetch-document"]//@href').extract()[i]
+            name = li.xpath('//a[@class="text-plain gl-mr-3 js-prefetch-document"]//@href').extract()[i]
             url_encode_name = name[1:].replace('/', '%2F')
             repo = requests.get(f'{api_url}{url_encode_name}').json()
             repo_item = Item()
             repo_item['id'] = repo.get('id')
+            repo_item['type'] = 'explore'
             repo_item['title'] = repo.get('name_with_namespace')
+            repo_item['name'] = repo.get('name')
             repo_item['description'] = repo.get('description')
             repo_item['tags'] = repo.get('topics')
-            repo_item['url'] = repo.get('web_url')
-            #repo_item['language'] = language
             repo_item['image'] = repo.get('avatar_url')
-            repo_item['type'] = 'repository'
             repos.append(repo_item)
         return repos

@@ -1,58 +1,51 @@
 import scrapy
-import requests
 from items import Item
+import toml
+import helpers
 from scrapy.utils.project import get_project_settings
+import requests
 
-
-class TrendingSpider(scrapy.Spider):
+class IssuesSpider(scrapy.Spider):
     """
-    Get GitHub Trending repositories
+    Get GitHub repositories issues, labeld help-wanted
     """
-    name = "trending"
+    name = "issues"
     settings = get_project_settings()
+    url = settings.get('GITHUB_REPOS')
 
     def start_requests(self):
         """
         Start calls to the provided url's
         """
-        url = self.settings.get('GITHUB_TRENDING')        
-        yield scrapy.Request(url=url, callback=self.parse)
+        token = self.settings.get('GITHUB_TOKEN')  
+        headers = helpers.add_request_headers(token)
+        with open('../../data/repositories.toml', "r") as data_file:
+            data = toml.load(data_file)
+
+        for r in data['repositories']:
+            #TODO: read the repo label from the flag
+            languages = requests.get(url=f'{self.url}/{r}/languages', headers=headers).json()
+            yield scrapy.Request(url=f'{self.url}/{r}/issues?labels=help%20wanted',
+                                 headers=headers,
+                                 callback=self.parse,
+                                 meta={'languages': languages})
 
     def parse(self, response):
         """
         Parse the response object and select the article box for each trending repo
         """
+        repositories = response.json()
         repos = []
-        url = self.settings.get('GITHUB_REPOS')
-        headers = self.__request_headers()
-        for quote in response.css('article.Box-row h1'):
-            href = quote.css('a').attrib['href']
-            name = href[1:]
-            repo = requests.get(f'{url}/{name}', headers=headers).json()
-            languages = requests.get(f'{url}/{name}/languages', headers=headers).json()
-            if languages:
-                language = list(languages)[0]
+        languages = response.meta.get('languages')
+        for repo in repositories:
             repo_item = Item()
             repo_item['id'] = repo.get('id')
-            repo_item['title'] = repo.get('full_name')
-            repo_item['description'] = repo.get('description')
-            repo_item['tags'] = repo.get('topics')
-            repo_item['url'] = repo.get('html_url')
-            repo_item['language'] = language
-            repo_item['image'] = repo['owner'].get('avatar_url')
-            repo_item['type'] = 'repository'
+            repo_item['type'] = 'contribute'
+            repo_item['title'] = repo.get('title')
+            repo_item['description'] = helpers.markdown_to_text(repo.get('body'))
+            repo_item['name'] = repo['user'].get('login')
+            repo_item['tags'] = list(languages.keys())
+            repo_item['image'] = repo['user'].get('avatar_url')
             repos.append(repo_item)
         return repos
 
-    def __request_headers(self):
-        """
-        Setup headers for API requests
-        @TODO: Move this to utils/helper
-        """
-        token = self.settings.get('GITHUB_TOKEN')     
-        headers={
-            'User-Agent': 'Mozilla/5.0',
-            "Accept": "application/vnd.github.v3+json",
-            "Authorization": token
-        }
-        return headers
