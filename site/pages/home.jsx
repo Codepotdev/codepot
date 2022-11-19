@@ -32,9 +32,7 @@ export default function Home() {
           </span>
           <span className="border-2 border-primary p-2">Learn Dashboard</span>
         </div>
-      </div>
-      <div></div>
-      <div className="grid grid-cols-5">
+        <div className="grid grid-cols-5 p-2 border-2 border-primary">
         {cardData.map((cd) => (
           <Card
             id={cd.id}
@@ -46,6 +44,7 @@ export default function Home() {
             image={cd.image}
           ></Card>
         ))}
+      </div>
       </div>
     </div>
   );
