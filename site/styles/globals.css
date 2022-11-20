@@ -33,6 +33,18 @@ body {
     @apply bg-surface dark:bg-dark-surface/80;
   }
 
+  .dashboard-container {
+    @apply mx-12
+  }
+
+  .card-border {
+    @apply border border-border-default dark:border-dark-border-default
+  }
+
+  .header-border {
+    @apply border-b border-border-default dark:border-dark-border-default
+  }
+
   .button-primary {
     @apply prose-default bg-primary dark:bg-dark-primary text-on-primary dark:text-dark-on-primary;
   }
