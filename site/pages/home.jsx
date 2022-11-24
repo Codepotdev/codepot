@@ -30,9 +30,9 @@ export default function Home() {
               Learn Dashboard
             </button>
           </div>
+          {/* <Grid gridType="cols" gridSize="5"></Grid> */}
         </div>
       </div>
-      {/* <Grid gridType="cols" gridSize="5"></Grid> */}
     </>
   );
 }
