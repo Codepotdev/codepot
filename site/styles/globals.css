@@ -34,12 +34,20 @@ body {
     @apply bg-surface dark:bg-dark-surface/80;
   }
 
+  .surface-default-hover {
+    @apply bg-surface dark:bg-dark-surface/20;
+  }
+
   .dashboard-container {
     @apply mx-12;
   }
 
   .card-border {
     @apply border border-border-default dark:border-dark-border-default;
+  }
+
+  .card-border-hover {
+    @apply border border-primary/20 dark:border-dark-primary/20;
   }
 
   .header-border {

@@ -18,7 +18,7 @@ export async function getStaticProps() {
 export default function Explore({ cardData, endpoint }) {
   return (
     <div className="dashboard-container">
-      <h1 className="p-2 text-color-primary">Explore Dashboard</h1>
+      <h1 className="p-2 text-color-primary mb-4">Explore Dashboard</h1>
       <Grid data={cardData} endpoint={endpoint}></Grid>
     </div>
   );

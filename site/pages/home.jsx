@@ -37,7 +37,7 @@ export default function Home() {
               </a>
             </button>
           </div>
-          <div className="grid grid-cols-5 ">
+          <div className="grid gap-2 grid-cols-5 ">
             {cardData.map((cd, index) => (
               <Card
                 key={index}
