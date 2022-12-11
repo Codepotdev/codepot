@@ -7,7 +7,9 @@ export default function Grid({ data, totalPages, currentPage }) {
   const [hasMore, setHasMore] = useState(true);
 
   const getMoreCards = async () => {
-    const res = await fetch(`http://localhost:8080/expand`);
+    const res = await fetch(
+      `http://localhost:8080/expand?page=${currentPage + 1}`
+    );
     const newCardData = await res.json();
     setCardData((cardData) => [...cardData, ...newCardData.expand]);
     setHasMore(() => currentPage === totalPages);
