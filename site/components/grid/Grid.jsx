@@ -1,7 +1,7 @@
 import Card from "@components/card/Card";
 import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { cardData as test } from "@data/data-share";
+
 
 export default function Grid({ data, endpoint }) {
   const [cardData, setCardData] = useState(data);
@@ -9,10 +9,10 @@ export default function Grid({ data, endpoint }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const getMoreCards = async () => {
-    const res = await fetch(`${endpoint}?page=${currentPage}`);
+    const res = await fetch(`${endpoint}?page=${currentPage + 1}`);
     const newCardData = await res.json();
-    setHasMore(() => currentPage < newCardData.totalPages);
     setCurrentPage(() => currentPage + 1);
+    setHasMore(() => currentPage < newCardData.totalPages);
     setCardData((cardData) => [...cardData, ...newCardData.expand]);
   };
 

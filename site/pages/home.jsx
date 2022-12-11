@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Card from "@components/card/Card";
+import { cardData } from "@data/data-share";
 
 export default function Home() {
   return (
@@ -18,19 +19,38 @@ export default function Home() {
             cupiditate.
           </p>
         </div>
-        <div className="">
-          <div className="grid grid-cols-3 marker:text-color-primary">
-            <button className="button-primary m-4 rounded-full p-2">
-              <Link href="/dashboard/contribute">Contributor Dashboard</Link>
+        <div>
+          <div className="grid grid-cols-3 marker:text-color-primary p-2 ">
+            <button className="button-primary m-4 rounded-full hover:button-primary-hover">
+              <a href="/dashboard/contribute" className="no-underline">
+                Contributor Dashboard
+              </a>
             </button>
-            <button className="button-primary m-4 rounded-full p-2">
-              <Link href="/dashboard/explore">Explore Dashboard</Link>
+            <button className="button-primary m-4 rounded-full p-2 hover:button-primary-hover">
+              <a href="/dashboard/explore" className="no-underline">
+                Explore Dashboard
+              </a>
             </button>
-            <button className="button-primary m-4 rounded-full p-2">
-              <Link href="/dashboard/expand">Expand Dashboard</Link>
+            <button className="button-primary m-4 rounded-full p-2 hover:button-primary-hover">
+              <a href="/dashboard/expand" className="no-underline">
+                Expand Dashboard
+              </a>
             </button>
           </div>
-          {/* <Grid gridType="cols" gridSize="5"></Grid> */}
+          <div className="grid grid-cols-5 ">
+            {cardData.map((cd, index) => (
+              <Card
+                key={index}
+                id={cd?.id}
+                type={cd?.type}
+                name={cd?.name}
+                title={cd?.title}
+                description={cd?.description}
+                tags={cd?.tags}
+                image={cd?.image}
+              ></Card>
+            ))}
+          </div>
         </div>
       </div>
     </>
