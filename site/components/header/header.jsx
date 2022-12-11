@@ -11,7 +11,7 @@ export default function Header({ theme, onThemeChange }) {
         <span className="text-lg text-color-primary">dev</span>
       </a>
       <a
-        onClick={() => onThemeChange(theme ? "" : "dark")}
+        onClick={() => onThemeChange(theme === 'dark' ? 'light' : 'dark')}
         className="text-color-default ml-auto"
       >
         Toggle Theme
@@ -25,7 +25,7 @@ export default function Header({ theme, onThemeChange }) {
 
       <a href="https://github.com/Codepotdev/codepot" target="_blank">
         <Image
-          src={theme ? "/githubmark.png" : "/githubmarkdark.png"}
+          src={theme === 'dark' ? "/githubmark.png" : "/githubmarkdark.png"}
           height={25}
           width={25}
         />
