@@ -13,7 +13,7 @@ export default function Card({
   return (
     <>
       <div className="max-w-sm rounded-lg overflow-hidden shadow-lg prose-default card-border surface-default mx-2">
-        <Image src={image} width={50} height={50} />
+        <Image src={image ? image : '/octocat.png'} width={50} height={50} />
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{title}</div>
           <p className="text-gray-700 text-base">{description}</p>

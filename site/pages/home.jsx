@@ -1,4 +1,4 @@
-import Grid from "@components/grid/Grid";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,13 +21,13 @@ export default function Home() {
         <div className="">
           <div className="grid grid-cols-3 marker:text-color-primary">
             <button className="button-primary m-4 rounded-full p-2">
-              Contributor Dashboard
+              <Link href="/dashboard/contribute">Contributor Dashboard</Link>
             </button>
             <button className="button-primary m-4 rounded-full p-2">
-              Trends Dashboard
+              <Link href="/dashboard/explore">Explore Dashboard</Link>
             </button>
             <button className="button-primary m-4 rounded-full p-2">
-              Learn Dashboard
+              <Link href="/dashboard/expand">Expand Dashboard</Link>
             </button>
           </div>
           {/* <Grid gridType="cols" gridSize="5"></Grid> */}
