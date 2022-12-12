@@ -70,6 +70,10 @@ body {
     @apply prose-default bg-secondary dark:bg-dark-secondary text-on-secondary dark:text-dark-on-secondary;
   }
 
+  .listbox-primary {
+    @apply hover:bg-opacity-60 hover:bg-primary hover:dark:bg-dark-primary hover:text-on-primary hover:dark:text-dark-on-primary;
+  }
+
   .prose-default {
     @apply text-color-default prose sm:prose-sm md:prose-base lg:prose-lg 2xl:prose-xl;
   }
