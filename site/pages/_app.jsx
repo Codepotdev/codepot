@@ -1,21 +1,20 @@
 import "../styles/globals.css";
 import MainLayout from "../components/layouts/MainLayout";
 import Head from "next/head";
-import { useState } from "react";
+import { ThemeProvider } from "next-themes";
 
 function CpdApp({ Component, pageProps }) {
-  const [theme, setTheme] = useState("dark");
-
   return (
-    <div className={theme}>
+    <div>
       <Head>
         <title>codepot.dev - Developer Dashboard</title>
         <link rel="shortcut icon" href="/codepot.svg" />
       </Head>
-
-      <MainLayout theme={theme} onThemeChange={setTheme}>
-        <Component {...pageProps} />
-      </MainLayout>
+      <ThemeProvider enableSystem={true} attribute="class">
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </ThemeProvider>
     </div>
   );
 }

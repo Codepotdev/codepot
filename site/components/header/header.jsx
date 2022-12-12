@@ -2,16 +2,16 @@ import Image from "next/image";
 
 export default function Header({ theme, onThemeChange }) {
   return (
-    <nav className="flex items-center border-b-2 border-on-background p-3 px-4 ">
+    <nav className="flex items-center header-border p-3 px-4 ">
       <a href="/home" className="flex items-center">
-        {/* <Image src={"/codepot.svg"} height={30} width={30}/> */}
+        {/* <Image src={"/codepotdev1.svg"} height={35} width={35}/> */}
         <span className="text-lg text-color-default">
           codepot
         </span>
         <span className="text-lg text-color-primary">dev</span>
       </a>
       <a
-        onClick={() => onThemeChange(theme ? "" : "dark")}
+        onClick={() => onThemeChange(theme === 'dark' ? 'light' : 'dark')}
         className="text-color-default ml-auto"
       >
         Toggle Theme
@@ -25,7 +25,7 @@ export default function Header({ theme, onThemeChange }) {
 
       <a href="https://github.com/Codepotdev/codepot" target="_blank">
         <Image
-          src={theme ? "/githubmark.png" : "/githubmarkdark.png"}
+          src={theme === 'dark' ? "/githubmark.png" : "/githubmarkdark.png"}
           height={25}
           width={25}
         />
