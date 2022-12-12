@@ -2,15 +2,7 @@ import { useState } from "react";
 import { Transition, Listbox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Fragment } from "react";
-
-const languages = [
-  { name: "All" },
-  { name: "typescript" },
-  { name: "Javascript" },
-  { name: "HTML" },
-  { name: "CSS" },
-  { name: "Java" },
-];
+import { languages } from "@data/data-share";
 
 export default function Filter({ onFilterChange }) {
   const [language, setLanguage] = useState(languages[0]);
@@ -25,7 +17,7 @@ export default function Filter({ onFilterChange }) {
         }}
       >
         <div className="relative mt-1 w-36">
-          <Listbox.Button className="relative w-40 cursor-pointer rounded-md surface-default py-2 pl-3 text-left shadow-md card-border text-sm">
+          <Listbox.Button className="relative w-60 cursor-pointer rounded-md surface-default py-2 pl-3 text-left shadow-md card-border text-sm">
             <span className="block truncate capitalize">{language.name}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon
@@ -40,7 +32,7 @@ export default function Filter({ onFilterChange }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute z-50 mt-1 h-60 w-40 rounded-md bg-surface dark:bg-dark-surface py-1 shadow-lg card-border text-sm">
+            <Listbox.Options className="absolute z-50 max-h-60 mt-1 overflow-auto w-60 rounded-md bg-surface dark:bg-dark-surface py-1 shadow-lg card-border text-sm">
               {languages.map((lang, index) => (
                 <Listbox.Option
                   key={index}

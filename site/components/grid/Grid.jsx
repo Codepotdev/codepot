@@ -7,10 +7,10 @@ export default function Grid({ data, endpoint }) {
   const [cardData, setCardData] = useState(data);
   const [hasMore, setHasMore] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [tags, setTags] = useState(null);
+  const [tags, setTags] = useState('');
 
   const getMoreCards = async () => {
-    const res = await fetch(`${endpoint}?page=${currentPage + 1}?tag=${tags}`);
+    const res = await fetch(`${endpoint}?page=${currentPage + 1}&tag=${tags}`);
     const newCardData = await res.json();
     setCurrentPage(() => currentPage + 1);
     setHasMore(() => currentPage < newCardData.totalPages);
