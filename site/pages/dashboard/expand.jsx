@@ -1,4 +1,5 @@
 import Grid from "@components/grid/Grid";
+
 export async function getStaticProps() {
   const endpoint = "http://localhost:8080/expand";
   const getExpand = await fetch(process.env.expand_url);
