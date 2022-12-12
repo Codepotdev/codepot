@@ -12,14 +12,14 @@ export default function Header({ theme, onThemeChange }) {
       </a>
       <a
         onClick={() => onThemeChange(theme === 'dark' ? 'light' : 'dark')}
-        className="text-color-default ml-auto"
+        className="text-color-default ml-auto cursor-pointer"
       >
         Toggle Theme
       </a>
-      <span className="mx-4 text-color-default ">
+      <span className="mx-4 text-color-default cursor-pointer">
         Contribution guidelines
       </span>
-      <span className="mx-4 text-color-default">
+      <span className="mx-4 text-color-default cursor-pointer">
         About us
       </span>
 

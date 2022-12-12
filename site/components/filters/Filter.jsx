@@ -49,7 +49,7 @@ export default function Filter({ onFilterChange }) {
                       {selected ? (
                         <span className="absolute inset-y-0 text-brand-600 left-0 flex items-center pl-3 text-dark">
                           <CheckIcon
-                            className="h-5 w-5 text-primary"
+                            className="h-5 w-5 text-secondary"
                             aria-hidden="true"
                           />
                         </span>
