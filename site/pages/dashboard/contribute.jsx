@@ -3,7 +3,7 @@ import Grid from "@components/grid/Grid";
 export async function getStaticProps() {
   const endpoint = "http://localhost:8080/contribute";
 
-  const getContribute = await fetch(process.env.contribute_url);
+  const getContribute = await fetch(endpoint);
 
   const getContributeResponse = await getContribute.json();
 

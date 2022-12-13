@@ -3,7 +3,7 @@ import Grid from "@components/grid/Grid";
 export async function getStaticProps() {
   const endpoint = "http://localhost:8080/explore";
 
-  const getExplore = await fetch(process.env.explore_url);
+  const getExplore = await fetch(endpoint);
 
   const getExploreResponse = await getExplore.json();
 
