@@ -8,6 +8,9 @@ on:
 jobs: 
   build-and-deploy: 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
     
     steps:
     - name: Checkout code
@@ -19,7 +22,7 @@ jobs:
         node-version: 16 
 
     - name: Install dependencies
-      run: cd site && npm ci
+      run: npm ci
 
     - name: Build and export frontend
       run: npm run build
