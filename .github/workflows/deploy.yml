@@ -2,30 +2,31 @@ name: Deploy Codepot Frontend
 
 on: 
   push:
-    branches: - main
+    branches: 
+      - main
 
 jobs: 
   build-and-deploy: 
     runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-steps:
-- name: Checkout code
-  uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16 
 
-- name: Set up Node.js
-  uses: actions/setup-node@v2
-  with:
-    node-version: 16 
+    - name: Install dependencies
+      run: npm ci
 
-- name: Install dependencies
-  run: npm ci
+    - name: Build and export frontend
+      run: npm run build
 
-- name: Build and export frontend
-  run: npm run build
-
-- name: Deploy to EC2
-  run: |
-    rsync -r --delete-after --quiet ${{ secrets.SSH_PRIVATE_KEY }} ./out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/codepot/site/.next:
-    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-    SSH_USER: ${{ secrets.SSH_USER }}
-    SSH_HOST: ${{ secrets.SSH_HOST }}
+    - name: Deploy to EC2
+      run: |
+        rsync -r --delete-after --quiet ${{ secrets.SSH_PRIVATE_KEY }} ./out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/codepot/site/.next:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        SSH_USER: ${{ secrets.SSH_USER }}
+        SSH_HOST: ${{ secrets.SSH_HOST }}
