@@ -11,6 +11,7 @@ pip install -r requirements.txt
 ### Run Trending Scraper :checkered_flag:
 
 ```
+cd spiders/github/
 scrapy runspider trending.py -a time=daily,weekly,monthly
 ```
 

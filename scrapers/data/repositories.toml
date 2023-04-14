@@ -1,4 +1,6 @@
 repositories = [
+  'firstcontributions/first-contributions',
+  'codedecks-in/LeetCode-Solutions',
   'apache/apisix',
   'electron-userland/electron-builder',
   'freeCodeCamp/freeCodeCamp',
