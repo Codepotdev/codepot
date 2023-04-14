@@ -3,7 +3,7 @@ name: Deploy Codepot Frontend
 on: 
   push:
     branches: 
-      - main
+      - master
 
 jobs: 
   build-and-deploy: 
