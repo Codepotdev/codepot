@@ -7,7 +7,7 @@ export default function Home() {
       <div className="grid grid-cols-1 m-4 md:grid-cols-2">
         <div className="text-color-default prose-default">
           <h1 className="text-color-primary">
-            Contribute, follow latest trends and learn.
+            Contribute, follow latest trends and learn!
           </h1>
           <h2 className="text-color-default">
             Expand your opportunities with us.
