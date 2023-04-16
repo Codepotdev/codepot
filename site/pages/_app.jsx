@@ -7,7 +7,7 @@ function CpdApp({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title>codepot.dev - Developer Dashboard</title>
+        <title>Accelerate Your Developer Career | codepot.dev </title>
         <link rel="shortcut icon" href="/codepot.svg" />
       </Head>
       <ThemeProvider enableSystem={true} attribute="class">
