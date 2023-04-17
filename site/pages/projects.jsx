@@ -29,7 +29,7 @@ export async function getStaticProps() {
 export default function Projects({ cardData }) {
   const dispatch = useDispatch();
   const [hasMounted, setHasMounted] = useState(false);
-  const apiEndpoints = useSelector((state) => state.app.apiEndpoints);
+  const apiEndpoints = useSelector((state) => state.app.apiEndpoints.explore);
   const stateParams = useSelector((state) => state.app.params);
   const fetchedCards = useSelector((state) => state.app.cards);
 
@@ -44,7 +44,7 @@ export default function Projects({ cardData }) {
 
   const fetch = () => {
     const queryString = new URLSearchParams(stateParams).toString();
-    const urlWithParams = `${apiEndpoints.explore}?${queryString}`;
+    const urlWithParams = `${apiEndpoints}?${queryString}`;
     axios.get(urlWithParams).then((res) => {
       if (stateParams.page === 1) {
         dispatch(setFetchedData(res.data)); // Replace fetched data in Redux store when the tag changes
@@ -76,7 +76,7 @@ export default function Projects({ cardData }) {
       tag: stateParams.tag,
     };
     const queryString = new URLSearchParams(newParams).toString();
-    const urlWithParams = `${apiEndpoints.explore}?${queryString}`;
+    const urlWithParams = `${apiEndpoints}?${queryString}`;
 
     axios.get(urlWithParams).then((res) => {
       dispatch(incrementPage());

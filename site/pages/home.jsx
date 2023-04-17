@@ -21,6 +21,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ cardData }) {
+
   return (
     <>
       <Head>
@@ -63,7 +64,7 @@ export default function Home({ cardData }) {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {cardData.slice(7, 10).map((blog) => (
+            {cardData.slice(4, 7).map((blog) => (
               <Card
                 key={blog._id}
                 title={blog.title}
@@ -85,7 +86,7 @@ export default function Home({ cardData }) {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {cardData.slice(4, 7).map((question) => (
+            {cardData.slice(7, 10).map((question) => (
               <Card
                 key={question._id}
                 title={question.title}
