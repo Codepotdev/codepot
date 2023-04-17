@@ -14,7 +14,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      cardData: getExploreResponse.data,
+      cardData: getExploreResponse,
       endpoint: endpoint,
     },
   };

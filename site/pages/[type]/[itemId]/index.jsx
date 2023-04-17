@@ -29,7 +29,6 @@ export async function getServerSideProps({ params }) {
 
 const ItemDetail = ({ cardData }) => {
   const { title, description, image, tags, link } = cardData;
-  console.log(cardData)
   return (
     <>
       <Head>
