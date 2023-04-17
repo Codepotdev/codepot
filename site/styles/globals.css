@@ -12,23 +12,3 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* Firefox */
-* {
-  scrollbar-width: 8px;
-  scrollbar-color: var(--primary);
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 8px;
-}
-
-*::-webkit-scrollbar-track {
-  border-radius: 5px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
-  border-radius: 14px;
-}

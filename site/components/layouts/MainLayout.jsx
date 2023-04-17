@@ -9,6 +9,7 @@ export default function MainLayout({ children }) {
       <header>
         <Header theme={theme} onThemeChange={setTheme} />
       </header>
+      <div className="my-8"></div>
       <main>{children}</main>
     </div>
   );
