@@ -1,57 +1,108 @@
+import Head from "next/head";
 import Card from "@components/card/Card";
-import { cardData } from "@data/data-share";
+import Hero from "@components/hero/Hero";
+import Footer from "@components/footer/Footer";
+import Newsletter from "@components/newsletter/Newsletter";
+import Link from "next/link";
 
-export default function Home() {
+export async function getStaticProps() {
+  const endpoint = "http://localhost:8080/explore";
+
+  const getExplore = await fetch(endpoint);
+
+  const getExploreResponse = await getExplore.json();
+
+  return {
+    props: {
+      cardData: getExploreResponse,
+      endpoint: endpoint,
+    },
+  };
+}
+
+export default function Home({ cardData }) {
+
   return (
     <>
-      <div className="grid grid-cols-1 m-4 md:grid-cols-2">
-        <div className="text-color-default prose-default">
-          <h1 className="text-color-primary">
-            Contribute, follow latest trends and learn!
-          </h1>
-          <h2 className="text-color-default">
-            Expand your opportunities with us.
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto,
-            nulla! Sequi quas numquam dolore nobis nam possimus, adipisci sed
-            est itaque, saepe eaque illum, a veritatis deleniti. Neque, a
-            cupiditate.
-          </p>
-        </div>
-        <div>
-          <div className="grid grid-cols-3 marker:text-color-primary p-2 ">
-            <button className="button-primary m-4 rounded-full hover:button-primary-hover">
-              <a href="/dashboard/contribute" className="no-underline">
-                Contributor Dashboard
-              </a>
-            </button>
-            <button className="button-primary m-4 rounded-full p-2 hover:button-primary-hover">
-              <a href="/dashboard/explore" className="no-underline">
-                Explore Dashboard
-              </a>
-            </button>
-            <button className="button-primary m-4 rounded-full p-2 hover:button-primary-hover">
-              <a href="/dashboard/expand" className="no-underline">
-                Expand Dashboard
-              </a>
-            </button>
+      <Head>
+        <title>Codepotdev</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero section */}
+        <Hero></Hero>
+
+        {/* Open-source projects section */}
+        <section className="py-20">
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-4xl font-bold">Open-source Projects</h2>
+            <Link href="/projects">
+              <a className="text-blue-600 hover:text-blue-800">View All</a>
+            </Link>
           </div>
-          <div className="grid gap-2 grid-cols-3 ">
-            {cardData.map((cd, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {cardData.slice(0, 3).map((project) => (
               <Card
-                key={index}
-                id={cd?.id}
-                type={cd?.type}
-                name={cd?.name}
-                title={cd?.title}
-                description={cd?.description}
-                tags={cd?.tags}
-                image={cd?.image}
-              ></Card>
+                id={project._id}
+                type={project.type}
+                name={project.name}
+                title={project.title}
+                description={project.description}
+                tags={project.tags}
+                image={project.image}
+              />
             ))}
           </div>
-        </div>
+        </section>
+
+        {/* Industry Insights section */}
+        <section className="py-20">
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-4xl font-bold">Industry Insights</h2>
+            <Link href="/industry-insights">
+              <a className="text-blue-600 hover:text-blue-800">View All</a>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {cardData.slice(4, 7).map((blog) => (
+              <Card
+                key={blog._id}
+                title={blog.title}
+                description={blog.description}
+                image={blog.image}
+                tags={blog.tags}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Helping Hands section */}
+        <section className="py-20">
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-4xl font-bold">Helping Hands</h2>
+            <Link href="/helping-hands">
+              <a className="text-blue-600 hover:text-blue-800">View All</a>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {cardData.slice(7, 10).map((question) => (
+              <Card
+                key={question._id}
+                title={question.title}
+                description={question.description}
+                tags={question.tags}
+                image={question.image}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Newsletter signup section */}
+        <Newsletter></Newsletter>
+
+        {/* Footer */}
+        <Footer></Footer>
       </div>
     </>
   );

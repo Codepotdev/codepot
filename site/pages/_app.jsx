@@ -1,22 +1,24 @@
-import "../styles/globals.css";
-import MainLayout from "../components/layouts/MainLayout";
+import store from "src/store/store";
 import Head from "next/head";
-import { ThemeProvider } from "next-themes";
+import MainLayout from "../components/layouts/MainLayout";
+import "../styles/globals.css";
+import { createWrapper } from "next-redux-wrapper";
 
 function CpdApp({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title>codepot.dev - Developer Dashboard</title>
+        <title>Accelerate Your Developer Career | codepot.dev </title>
         <link rel="shortcut icon" href="/codepot.svg" />
       </Head>
-      <ThemeProvider enableSystem={true} attribute="class">
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
-      </ThemeProvider>
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
     </div>
   );
 }
 
-export default CpdApp;
+const makeStore = () => store;
+const wrapper = createWrapper(makeStore);
+
+export default wrapper.withRedux(CpdApp);
