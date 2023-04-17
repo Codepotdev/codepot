@@ -40,14 +40,12 @@ export default function Projects({ cardData }) {
       setHasMounted(true);
       dispatch(setFetchedData(cardData)); // Set initial fetched data from getStaticProps
     }
-  }, [hasMounted, stateParams.tag]);
+  }, [stateParams.tag]);
 
   const fetch = () => {
     const queryString = new URLSearchParams(stateParams).toString();
     const urlWithParams = `${apiEndpoints.explore}?${queryString}`;
-    console.log(urlWithParams)
     axios.get(urlWithParams).then((res) => {
-      console.log(res)
       if (stateParams.page === 1) {
         dispatch(setFetchedData(res.data)); // Replace fetched data in Redux store when the tag changes
       } else {
@@ -72,6 +70,20 @@ export default function Projects({ cardData }) {
     dispatch(setParams({ page: 1, tag }));
   };
 
+  const handleInfiniteScroll = () => {
+    const newParams = {
+      page: stateParams.page + 1,
+      tag: stateParams.tag,
+    };
+    const queryString = new URLSearchParams(newParams).toString();
+    const urlWithParams = `${apiEndpoints.explore}?${queryString}`;
+
+    axios.get(urlWithParams).then((res) => {
+      dispatch(incrementPage());
+      dispatch(addToFetchedData(res.data)); // Add fetched data to the Redux store when loading more data with infinite scroll
+    });
+  };
+
   return (
     <>
       <Head>
@@ -91,7 +103,7 @@ export default function Projects({ cardData }) {
         ></DashboardFilter>
         <InfiniteScrollList
           items={fetchedCards}
-          fetchMoreData={fetch}
+          fetchMoreData={handleInfiniteScroll}
           hasMore={true}
           renderItem={renderProjectCard}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"

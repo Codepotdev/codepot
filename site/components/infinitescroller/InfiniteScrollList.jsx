@@ -1,7 +1,5 @@
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { incrementPage } from "../../src/store/slices/appSlice";
-import { useDispatch } from "react-redux";
 
 const InfiniteScrollList = ({
   items,
@@ -10,16 +8,10 @@ const InfiniteScrollList = ({
   renderItem,
   className,
 }) => {
-  const dispatch = useDispatch();
-
   return (
     <InfiniteScroll
       dataLength={items.length}
-      next={() => {
-        console.log('incremented');
-        fetchMoreData;
-        dispatch(incrementPage());
-      }}
+      next={fetchMoreData}
       hasMore={hasMore}
       loader={<h4>Loading...</h4>}
       endMessage={
