@@ -1,8 +1,6 @@
 import Head from "next/head";
 import Card from "@components/card/Card";
 import Hero from "@components/hero/Hero";
-import Footer from "@components/footer/Footer";
-import Newsletter from "@components/newsletter/Newsletter";
 import Link from "next/link";
 
 export async function getStaticProps() {
@@ -21,7 +19,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ cardData }) {
-
   return (
     <>
       <Head>
@@ -97,12 +94,6 @@ export default function Home({ cardData }) {
             ))}
           </div>
         </section>
-
-        {/* Newsletter signup section */}
-        <Newsletter></Newsletter>
-
-        {/* Footer */}
-        <Footer></Footer>
       </div>
     </>
   );
