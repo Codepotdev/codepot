@@ -8,10 +8,10 @@ const initialState = {
         page: 1
     },
     apiEndpoints: {
-        baseUrl: "http://localhost:8080",
-        expand: "http://localhost:8080/expand",
-        explore: "http://localhost:8080/explore",
-        contribute: "http://localhost:8080/contribute"
+        baseUrl: "/api",
+        expand: "/api/expand",
+        explore: "/api/explore",
+        contribute: "/api/contribute"
     }
 };
 
